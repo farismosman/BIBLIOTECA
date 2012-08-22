@@ -3,24 +3,18 @@
 
 public class WelcomeScreen {
 
-    public static void printGreetingScreen(){
+    private printOnScreen printMethod;
 
-           String greetingMessage =   "Welcome to the Bangalore Public Library System!!";
-           System.out.println(greetingMessage);
-    }
-
-    public static void printOptions(){
-
-        String optionMessage = "To view a list all the books in the library, type 1 \n" +
-                "To reserve a book, type 2";
-        System.out.println(optionMessage);
+    public WelcomeScreen (printOnScreen printMethod){
+        this.printMethod = printMethod;
     }
 
     public static void main(String[] args) {
-        WelcomeScreen welcome = new WelcomeScreen();
-        welcome.printGreetingScreen();
-        welcome.printOptions();
-    }
+        String welcomeMessage = "Welcome to the Bangalore Public Library System!!";
+        String Option1Message =  "To view a list all the books in the library, type 1";
+        String Option2Message =  "To reserve a book, type 2";
+        WelcomeScreen welcome = new WelcomeScreen(new printMessage(welcomeMessage));
+        }
 
 }
 
