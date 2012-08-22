@@ -1,0 +1,2 @@
+To view a list all the books in the library, type 1
+To reserve a book, type 2
