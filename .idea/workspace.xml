@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beb09db5-116a-4989-8782-c4d5b353ab30" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/WelcomeScreen/WelcomeScreenTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/printOnScreen.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/WelcomeScreen/printOnScreen.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WelcomeScreen.java" afterPath="$PROJECT_DIR$/src/WelcomeScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/optionMessage.txt" afterPath="$PROJECT_DIR$/src/optionMessage.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/WelcomeScreenTest.java" afterPath="$PROJECT_DIR$/test/WelcomeScreenTest.java" />
     </list>
     <ignored path="biblioteca.iws" />
@@ -73,10 +71,8 @@
       <file leaf-file-name="WelcomeScreenTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/WelcomeScreenTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="75" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="21" column="1" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,16 +80,7 @@
       <file leaf-file-name="WelcomeScreen.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WelcomeScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="736" selection-end="736" vertical-scroll-proportion="0.39855072">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PrintMessage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PrintMessage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="25" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
+            <state line="6" column="16" selection-start="116" selection-end="116" vertical-scroll-proportion="0.10869565">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,8 +113,8 @@
         <option value="$PROJECT_DIR$/src/printMessage.java" />
         <option value="$PROJECT_DIR$/src/PrintOnScreen.java" />
         <option value="$PROJECT_DIR$/src/PrintMessage.java" />
-        <option value="$PROJECT_DIR$/test/WelcomeScreenTest.java" />
         <option value="$PROJECT_DIR$/src/WelcomeScreen.java" />
+        <option value="$PROJECT_DIR$/test/WelcomeScreenTest.java" />
       </list>
     </option>
   </component>
@@ -278,6 +265,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,16 +327,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,7 +352,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WelcomeScreenTest.main">
+  <component name="RunManager" selected="Application.WelcomeScreen">
     <configuration default="false" name="testOutput.err" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="WelcomeScreen" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -610,12 +597,12 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.testOutput.err" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.WelcomeScreenTest.main" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.WelcomeScreenTest.testPrintOptions" />
-      <item index="4" class="java.lang.String" itemvalue="Application.WelcomeScreen" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.WelcomeScreenTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.testOutput.err" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.WelcomeScreenTest.main" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.WelcomeScreenTest.testPrintOptions" />
+      <item index="3" class="java.lang.String" itemvalue="Application.WelcomeScreen" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.WelcomeScreenTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -651,7 +638,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1200" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -661,12 +648,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32794118" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271548" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13621795" sideWeight="0.79240036" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13621795" sideWeight="0.79240036" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20759962" sideWeight="0.9994658" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -748,40 +735,27 @@
     </entry>
     <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/io/OutputStream.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="22" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="22" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/io/ByteArrayOutputStream.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="62" selection-start="449" selection-end="449" vertical-scroll-proportion="0.3846154">
-          <folding />
-        </state>
+        <state line="13" column="62" selection-start="449" selection-end="449" vertical-scroll-proportion="0.3846154" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/WelcomeScreenTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="75" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PrintMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="25" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="21" column="1" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WelcomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="736" selection-end="736" vertical-scroll-proportion="0.39855072">
-          <folding />
+        <state line="6" column="16" selection-start="116" selection-end="116" vertical-scroll-proportion="0.10869565">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

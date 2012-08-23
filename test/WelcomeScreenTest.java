@@ -13,7 +13,7 @@ public class WelcomeScreenTest {
     @Test
     public void main(){
         String expectedGreetingMessage = "Welcome to the Bangalore Public Library System!!";
-        WelcomeScreen ws = new WelcomeScreen(new PrintMessage(outContent));
+        WelcomeScreen ws = new WelcomeScreen(outContent);
         ws.printMessage(expectedGreetingMessage);
         assertEquals("welcome not printing", expectedGreetingMessage, outContent.toString().trim());
 
