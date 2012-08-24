@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
@@ -10,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class BibliotecaTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    Biblioteca bibliotecaInjectionObject = new Biblioteca(new PrintStream(outContent));
 
     @Test
     public void FunctionalTestPrintWelcome() {
@@ -20,16 +22,39 @@ public class BibliotecaTest {
 
         String expectedMessages  = welcomeMessage + "\n" + Option1Message + "\n" + Option2Message;
 
-        Biblioteca welcometest = new Biblioteca(new PrintStream(outContent));
-        welcometest.run();
+        bibliotecaInjectionObject.run();
         assertEquals(expectedMessages,outContent.toString().trim());
     }
 
     @Test
     public void testPrintWelcomeMessage() {
         String message = "some test text";
-        Biblioteca printMethodtest = new Biblioteca(new PrintStream(outContent));
-        printMethodtest.printWelcomeMessages(message);
+
+        bibliotecaInjectionObject.printToScreen(message);
         assertEquals(message,outContent.toString().trim());
+    }
+
+    private String expectedBookList="Little Red Riding Hood, Will Smith\n" +
+            "Small Giants, Bo Burlingham\n" +
+            "The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
+            "The Whuffie Factor, Tara Hunt";
+    @Test
+    public void   testPrintAllBooks(){
+        bibliotecaInjectionObject.printAllBooks("/Users/Farism/thoughtworks/training/twu_assignment/biblioteca/src/ListOfBooks.txt");
+        assertEquals(expectedBookList, outContent.toString().trim());
+    }
+
+    @Test
+    public void   testReadAFile(){
+        String expectedFromFile = "Little Red Riding Hood, Will Smith";
+        String contentOfTheBook = bibliotecaInjectionObject.readAFile("/Users/Farism/thoughtworks/training/twu_assignment/biblioteca/test/bla.txt");
+        assertEquals(expectedFromFile, contentOfTheBook);
+    }
+
+    @Test
+    public void testFile()  {
+        File asFile = new File("/Users/Farism/thoughtworks/training/twu_assignment/biblioteca/test/bla.txt");
+        assertEquals( true, asFile.exists() );
+
     }
 }
