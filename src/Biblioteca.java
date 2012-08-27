@@ -29,7 +29,7 @@ public class Biblioteca {
     }
 
     public void printReserveABookMenu(){
-        String Option2Message =  "To reserve a book, type 2";
+        String Option2Message =  "To reserve a book, type 2 ";
         printToScreen(Option2Message);
     }
 
@@ -37,9 +37,27 @@ public class Biblioteca {
         printStream.println(message);
     }
 
+    private void prompt() {
+        printStream.print("> ");
+    }
+
     /////////////////////////////////////////////////////// Get user input //////////////////////////////
 
-    
+
+    public String getUserInput(){
+
+        String userInput = "";
+
+        try{
+            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(inStream));
+            userInput = bufferRead.readLine();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        return userInput;
+    }
 
 
     ///////////////////////////////////////// MAIN ///////////////////////////////////////////////////
@@ -47,7 +65,11 @@ public class Biblioteca {
     public void run(){
         printWelcomeMessage();
         printMenu();
+        prompt();
+        getUserInput();
     }
+
+
 
     public static void main(String[] args) {
        new Biblioteca(System.out, System.in).run();

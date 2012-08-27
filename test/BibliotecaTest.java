@@ -14,27 +14,36 @@ public class BibliotecaTest {
 
     Biblioteca biblioteca = new Biblioteca(new PrintStream(outContent), inContent);
 
-    @Test
-    public void FunctionalTestPrintWelcome() {
-
-        String expectedMessages = "Welcome to the Bangalore Public Library System!!\n"  +
-                                         "To view a list all the books in the library, type 1\n"  +
-                                         "To reserve a book, type 2";
-
-        biblioteca.run();
-        assertEquals(expectedMessages, outputConsole());
-    }
-
     private String outputConsole() {
         return outContent.toString().trim();
     }
 
+    /////////////////////////////// print menu functionality ///////////////////////////////////
+
     @Test
     public void testPrintWelcomeMessage() {
-        String message = "some test text";
+        String message = "Welcome to the Bangalore Public Library System!!";
         biblioteca.printToScreen(message);
         assertEquals(message, outputConsole());
     }
+
+    @Test
+    public void testPrintAllBooksMenu() {
+        String message = "To view a list all the books in the library, type 1";
+        biblioteca.printToScreen(message);
+        assertEquals(message, outputConsole());
+    }
+
+
+    /////////////////////////////// user input functionality /////////////////////////////////////
+
+    @Test
+    public void testUserInput(){
+        assertEquals(inputString, biblioteca.getUserInput());
+    }
+
+
+    ////////////////////////////////// print AllBooks functionality /////////////////////////////////
 
     private BookProcessor bookProcessor = new BookProcessor();
 
@@ -49,5 +58,17 @@ public class BibliotecaTest {
         assertEquals(expectedBookList, outputConsole());
     }
 
+    //////////////////////// Functional test //////////////////////////////////////
+
+    @Test
+    public void FunctionalTestPrintWelcome() {
+
+        String expectedMessages = "Welcome to the Bangalore Public Library System!!\n"  +
+                "To view a list all the books in the library, type 1\n"  +
+                "To reserve a book, type 2";
+
+        biblioteca.run();
+        assertEquals(expectedMessages, outputConsole());
+    }
 
 }
