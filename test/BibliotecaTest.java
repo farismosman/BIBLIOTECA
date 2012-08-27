@@ -5,56 +5,49 @@ import java.io.File;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
-
+import java.util.*;
+import org.apache.commons.io.*;
 
 
 public class BibliotecaTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    Biblioteca bibliotecaInjectionObject = new Biblioteca(new PrintStream(outContent));
+    Biblioteca biblioteca = new Biblioteca(new PrintStream(outContent));
 
     @Test
     public void FunctionalTestPrintWelcome() {
 
-        String welcomeMessage = "Welcome to the Bangalore Public Library System!!";
-        String Option1Message =  "To view a list all the books in the library, type 1";
-        String Option2Message =  "To reserve a book, type 2";
+        String expectedMessages = "Welcome to the Bangalore Public Library System!!\n"  +
+                                         "To view a list all the books in the library, type 1\n"  +
+                                         "To reserve a book, type 2";
 
-        String expectedMessages  = welcomeMessage + "\n" + Option1Message + "\n" + Option2Message;
+        biblioteca.run();
+        assertEquals(expectedMessages, outputConsole());
+    }
 
-        bibliotecaInjectionObject.run();
-        assertEquals(expectedMessages,outContent.toString().trim());
+    private String outputConsole() {
+        return outContent.toString().trim();
     }
 
     @Test
     public void testPrintWelcomeMessage() {
         String message = "some test text";
-
-        bibliotecaInjectionObject.printToScreen(message);
-        assertEquals(message,outContent.toString().trim());
+        biblioteca.printToScreen(message);
+        assertEquals(message, outputConsole());
     }
 
-    private String expectedBookList="Little Red Riding Hood, Will Smith\n" +
-            "Small Giants, Bo Burlingham\n" +
-            "The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
-            "The Whuffie Factor, Tara Hunt";
+    private BookProcessor bookProcessor = new BookProcessor();
+
     @Test
     public void   testPrintAllBooks(){
-        bibliotecaInjectionObject.printAllBooks("/Users/Farism/thoughtworks/training/twu_assignment/biblioteca/src/ListOfBooks.txt");
-        assertEquals(expectedBookList, outContent.toString().trim());
+        String expectedBookList="Little Red Riding Hood, Will Smith\n" +
+                "Small Giants, Bo Burlingham\n" +
+                "The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
+                "The Whuffie Factor, Tara Hunt";
+
+        bookProcessor.printAllBooks("src/ListOfBooks.txt", biblioteca);
+        assertEquals(expectedBookList, outputConsole());
     }
 
-    @Test
-    public void   testReadAFile(){
-        String expectedFromFile = "Little Red Riding Hood, Will Smith";
-        String contentOfTheBook = bibliotecaInjectionObject.readAFile("/Users/Farism/thoughtworks/training/twu_assignment/biblioteca/test/bla.txt");
-        assertEquals(expectedFromFile, contentOfTheBook);
-    }
 
-    @Test
-    public void testFile()  {
-        File asFile = new File("/Users/Farism/thoughtworks/training/twu_assignment/biblioteca/test/bla.txt");
-        assertEquals( true, asFile.exists() );
-
-    }
 }
