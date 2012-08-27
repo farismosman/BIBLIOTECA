@@ -61,15 +61,26 @@ public class Biblioteca {
 
 
     public void processUserChoice(){
+        prompt();
         String userInput= getUserInput();
         BookProcessor bookProcessor = new BookProcessor();
 
         if (userInput.equals("1")) {
             printToScreen("\n");
             bookProcessor.printAllBooks("src/ListOfBooks.txt", printStream);
+            printMenu();
+            processUserChoice();
 
+        } else if (userInput.equals("2")) {
+            printToScreen("\n");
+            printStream.println("Enter Book title");
+//            bookProcessor.reserveABook("");
+        } else {
+            printStream.println("\n");
+            printStream.println("Select a valid option!!\n");
+            processUserChoice();
         }
-       }
+     }
 
 
 
@@ -78,7 +89,6 @@ public class Biblioteca {
     public void run(){
         printWelcomeMessage();
         printMenu();
-        prompt();
         processUserChoice();
     }
 

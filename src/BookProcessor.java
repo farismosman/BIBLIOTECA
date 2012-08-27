@@ -6,9 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.io.PrintStream;
+import java.util.*;
 
 
 public class BookProcessor {
+
+    private SortedMap AllBooks = new TreeMap();
 
     public void printAllBooks(String filename, PrintStream printStream){
         String fileContent = readFileToString(filename);
@@ -19,20 +22,24 @@ public class BookProcessor {
 
         File asFile = new File(filename);
 
-        StringBuilder toline= new StringBuilder();
+        StringBuilder toLine= new StringBuilder();
 
         try {
              List<String> lines = FileUtils.readLines(asFile);
              for (String s:lines){
-                 toline.append(s + "\n");
+                 toLine.append(s + "\n");
              }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return toLine.toString();
+    }
 
-        return toline.toString();
+
+    public void requestABook(String key){
 
     }
+
+
 
 }
