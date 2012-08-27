@@ -73,8 +73,21 @@ public class Biblioteca {
 
         } else if (userInput.equals("2")) {
             printToScreen("\n");
-            printStream.println("Enter Book title");
-//            bookProcessor.reserveABook("");
+            printStream.println("Enter Book number:");
+            prompt();
+            String bookNumber = getUserInput();
+            int bookStatus = -1;
+            bookStatus = bookProcessor.requestABook(Integer.valueOf(bookNumber));
+            printStream.println(bookStatus);
+            if (bookStatus == -1){
+                printStream.println("Book unavailable.");
+                processUserChoice();
+            } else {
+                printStream.println("Book reserved successfully. Thank you for using our library.");
+                processUserChoice();
+            }
+
+
         } else {
             printStream.println("\n");
             printStream.println("Select a valid option!!\n");

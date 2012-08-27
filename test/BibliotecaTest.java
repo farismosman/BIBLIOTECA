@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class BibliotecaTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private String inputString = "2";
+    private String inputString = "1";
     private byte[] inputByte = inputString.getBytes();
     private final ByteArrayInputStream inContent = new ByteArrayInputStream(inputByte);
 
@@ -61,8 +61,8 @@ public class BibliotecaTest {
 
     @Test
     public void testStatusOfBook() {
-        bookProcessor.requestABook("book1");
-        assertEquals(-1, bookProcessor.AllBooks.getValue("book1"));
+        bookProcessor.requestABook(1);
+        assertEquals(1, bookProcessor.allBooks.get(1));
 
     }
 
