@@ -42,7 +42,6 @@ public class BibliotecaTest {
         assertEquals(inputString, biblioteca.getUserInput());
     }
 
-
     ////////////////////////////////// print AllBooks functionality /////////////////////////////////
 
     private BookProcessor bookProcessor = new BookProcessor();
@@ -54,7 +53,7 @@ public class BibliotecaTest {
                 "The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
                 "The Whuffie Factor, Tara Hunt";
 
-        bookProcessor.printAllBooks("src/ListOfBooks.txt", biblioteca);
+        bookProcessor.printAllBooks("src/ListOfBooks.txt", new PrintStream(outContent));
         assertEquals(expectedBookList, outputConsole());
     }
 
@@ -65,7 +64,8 @@ public class BibliotecaTest {
 
         String expectedMessages = "Welcome to the Bangalore Public Library System!!\n"  +
                 "To view a list all the books in the library, type 1\n"  +
-                "To reserve a book, type 2";
+                "To reserve a book, type 2 \n" +
+                ">";
 
         biblioteca.run();
         assertEquals(expectedMessages, outputConsole());

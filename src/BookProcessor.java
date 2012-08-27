@@ -5,13 +5,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import java.io.PrintStream;
 
 
 public class BookProcessor {
 
-    public void printAllBooks(String filename, Biblioteca bibliotecas){
+    public void printAllBooks(String filename, PrintStream printStream){
         String fileContent = readFileToString(filename);
-        bibliotecas.printToScreen(fileContent);
+        printStream.println(fileContent);
     }
 
     public String readFileToString( String filename) {

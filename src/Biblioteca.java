@@ -60,15 +60,27 @@ public class Biblioteca {
     }
 
 
+    public void processUserChoice(){
+        String userInput= getUserInput();
+        BookProcessor bookProcessor = new BookProcessor();
+
+        if (userInput.equals("1")) {
+            printToScreen("\n");
+            bookProcessor.printAllBooks("src/ListOfBooks.txt", printStream);
+
+        }
+       }
+
+
+
     ///////////////////////////////////////// MAIN ///////////////////////////////////////////////////
 
     public void run(){
         printWelcomeMessage();
         printMenu();
         prompt();
-        getUserInput();
+        processUserChoice();
     }
-
 
 
     public static void main(String[] args) {

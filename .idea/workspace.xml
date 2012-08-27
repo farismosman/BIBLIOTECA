@@ -7,6 +7,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/WelcomeScreen/printOnScreen.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/WelcomeScreen/WelcomeScreenTest.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Biblioteca.java" afterPath="$PROJECT_DIR$/src/Biblioteca.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BookProcessor.java" afterPath="$PROJECT_DIR$/src/BookProcessor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/BibliotecaTest.java" afterPath="$PROJECT_DIR$/test/BibliotecaTest.java" />
     </list>
     <ignored path="biblioteca.iws" />
@@ -73,7 +74,7 @@
       <file leaf-file-name="BibliotecaTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/BibliotecaTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="37" selection-start="235" selection-end="240" vertical-scroll-proportion="0.0">
+            <state line="10" column="37" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,7 +94,7 @@
       <file leaf-file-name="Biblioteca.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Biblioteca.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="9" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.44751382">
+            <state line="85" column="24" selection-start="2149" selection-end="2150" vertical-scroll-proportion="0.6961326">
               <folding />
             </state>
           </provider>
@@ -102,7 +103,7 @@
       <file leaf-file-name="BookProcessor.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BookProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="33" selection-start="817" selection-end="817" vertical-scroll-proportion="0.0">
+            <state line="14" column="26" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -380,66 +381,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Biblioteca">
-    <configuration default="false" name="Biblioteca" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="Biblioteca" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="WelcomeScreen" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="BibliotecaTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="WelcomeScreen" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BibliotecaTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="BibliotecaTest.FunctionalTestPrintWelcome" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="WelcomeScreen" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BibliotecaTest" />
-      <option name="METHOD_NAME" value="FunctionalTestPrintWelcome" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
     <configuration default="false" name="BibliotecaTest.testFileUtilis" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="WelcomeScreen" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -470,6 +411,66 @@
       <option name="MAIN_CLASS_NAME" value="BibliotecaTest" />
       <option name="METHOD_NAME" value="testUserInput" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="BibliotecaTest.testPrintAllBooks" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="WelcomeScreen" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BibliotecaTest" />
+      <option name="METHOD_NAME" value="testPrintAllBooks" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Biblioteca" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Biblioteca" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WelcomeScreen" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="BibliotecaTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="WelcomeScreen" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BibliotecaTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -648,11 +649,11 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaTest.testReadAFile" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Biblioteca" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaTest.FunctionalTestPrintWelcome" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.BibliotecaTest.testFileUtilis" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.BibliotecaTest.testUserInput" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaTest.testFileUtilis" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaTest.testUserInput" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaTest.testPrintAllBooks" />
+      <item index="5" class="java.lang.String" itemvalue="Application.Biblioteca" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.BibliotecaTest" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -688,7 +689,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1200" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -704,7 +705,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19497864" sideWeight="0.5282669" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4717331" sideWeight="0.9992343" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4717331" sideWeight="0.9992343" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -800,7 +801,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BookProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="33" selection-start="817" selection-end="817" vertical-scroll-proportion="0.0">
+        <state line="14" column="26" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -809,7 +810,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/BibliotecaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="37" selection-start="235" selection-end="240" vertical-scroll-proportion="0.0">
+        <state line="10" column="37" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -818,7 +819,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Biblioteca.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="9" selection-start="1547" selection-end="1547" vertical-scroll-proportion="0.44751382">
+        <state line="85" column="24" selection-start="2149" selection-end="2150" vertical-scroll-proportion="0.6961326">
           <folding />
         </state>
       </provider>
