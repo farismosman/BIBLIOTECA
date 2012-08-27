@@ -1,18 +1,18 @@
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.PrintStream;
+import java.io.*;
 
 import static org.junit.Assert.assertEquals;
-import java.util.*;
-import org.apache.commons.io.*;
 
 
 public class BibliotecaTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    Biblioteca biblioteca = new Biblioteca(new PrintStream(outContent));
+    private String inputString = "1";
+    private byte[] inputByte = inputString.getBytes();
+    private final ByteArrayInputStream inContent = new ByteArrayInputStream(inputByte);
+
+    Biblioteca biblioteca = new Biblioteca(new PrintStream(outContent), inContent);
 
     @Test
     public void FunctionalTestPrintWelcome() {

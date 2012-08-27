@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beb09db5-116a-4989-8782-c4d5b353ab30" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/BookProcessor.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/WelcomeScreen/WelcomeScreen.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/WelcomeScreen/printMessage.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/WelcomeScreen/printOnScreen.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/WelcomeScreen/WelcomeScreenTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/optionMessage.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/testReadFile.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/bla.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Biblioteca.java" afterPath="$PROJECT_DIR$/src/Biblioteca.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/BibliotecaTest.java" afterPath="$PROJECT_DIR$/test/BibliotecaTest.java" />
     </list>
@@ -78,7 +73,7 @@
       <file leaf-file-name="BibliotecaTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/BibliotecaTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="16" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
+            <state line="10" column="35" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,19 +81,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListOfBooks.txt" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ListOfBooks.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ListOfBooks.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.110497236">
+            <state line="4" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Biblioteca.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Biblioteca.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Biblioteca.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="24" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
+            <state line="41" column="4" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.86187845">
               <folding />
             </state>
           </provider>
@@ -141,9 +136,9 @@
         <option value="$PROJECT_DIR$/test/WelcomeScreenTest.java" />
         <option value="$PROJECT_DIR$/src/ListOfBooks.txt" />
         <option value="$PROJECT_DIR$/src/testReadFile.txt" />
-        <option value="$PROJECT_DIR$/src/Biblioteca.java" />
         <option value="$PROJECT_DIR$/src/BookProcessor.java" />
         <option value="$PROJECT_DIR$/test/BibliotecaTest.java" />
+        <option value="$PROJECT_DIR$/src/Biblioteca.java" />
       </list>
     </option>
   </component>
@@ -796,19 +791,10 @@
         <state line="5" column="19" selection-start="153" selection-end="153" vertical-scroll-proportion="0.02183406" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Biblioteca.java">
+    <entry file="file://$PROJECT_DIR$/src/ListOfBooks.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="24" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
+        <state line="4" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/BibliotecaTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="16" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -821,9 +807,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ListOfBooks.txt">
+    <entry file="file://$PROJECT_DIR$/test/BibliotecaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.110497236">
+        <state line="10" column="35" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Biblioteca.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="4" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.86187845">
           <folding />
         </state>
       </provider>

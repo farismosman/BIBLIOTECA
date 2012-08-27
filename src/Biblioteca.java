@@ -4,15 +4,14 @@ import java.io.*;
 public class Biblioteca {
 
     private PrintStream printStream;
+    private InputStream inStream;
 
-    public Biblioteca(PrintStream printStream){
+    public Biblioteca(PrintStream printStream, InputStream inStream){
         this.printStream = printStream;
+        this.inStream = inStream;
     }
 
-    public void run(){
-        printWelcomeMessage();
-        printMenu();
-    }
+    ////////////////////////////////////////////////////// Print Menu //////////////////////////////////////
 
     public void printWelcomeMessage(){
         String welcomeMessage = "Welcome to the Bangalore Public Library System!!";
@@ -38,15 +37,20 @@ public class Biblioteca {
         printStream.println(message);
     }
 
+    /////////////////////////////////////////////////////// Get user input //////////////////////////////
+
+    
+
 
     ///////////////////////////////////////// MAIN ///////////////////////////////////////////////////
 
-
+    public void run(){
+        printWelcomeMessage();
+        printMenu();
+    }
 
     public static void main(String[] args) {
-
-       new Biblioteca(System.out).run();
-       //welcome.printAllBooks("/Users/Farism/thoughtworks/training/twu_assignment/biblioteca/src/ListOfBooks.txt");
+       new Biblioteca(System.out, System.in).run();
     }
 
 }
