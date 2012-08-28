@@ -66,35 +66,57 @@ public class Biblioteca {
         BookProcessor bookProcessor = new BookProcessor();
 
         if (userInput.equals("1")) {
-            printToScreen("\n");
-            bookProcessor.printAllBooks("src/ListOfBooks.txt", printStream);
-            printMenu();
-            processUserChoice();
+            processPrintAllBooks(bookProcessor);
 
         } else if (userInput.equals("2")) {
-            printToScreen("\n");
-            printStream.println("Enter Book number:");
-            prompt();
-            String bookNumber = getUserInput();
-            int bookStatus = -1;
-            bookStatus = bookProcessor.requestABook(Integer.valueOf(bookNumber));
-            printStream.println(bookStatus);
-            if (bookStatus == -1){
-                printStream.println("Book unavailable.");
-                processUserChoice();
-            } else {
-                printStream.println("Book reserved successfully. Thank you for using our library.");
-                processUserChoice();
-            }
+            processReserveABook(bookProcessor);
 
+        } else if (userInputExit(userInput)){
+                System.exit(0);
 
         } else {
-            printStream.println("\n");
-            printStream.println("Select a valid option!!\n");
-            processUserChoice();
+            processSelectValidMethod();
         }
      }
 
+    private void processReserveABook(BookProcessor bookProcessor) {
+        printToScreen("\n");
+        printToScreen("Enter Book number:");
+        prompt();
+        String bookNumber = getUserInput();
+        int bookStatus = -1;
+        bookStatus = bookProcessor.requestABook(Integer.valueOf(bookNumber));
+
+        if (bookStatus == -1){
+            printToScreen("Book unavailable.");
+            printToScreen("\n");
+            printMenu();
+            processUserChoice();
+
+        } else {
+            printToScreen("Book reserved successfully. Thank you for using our library.");
+            printToScreen("\n");
+            printMenu();
+            processUserChoice();
+        }
+    }
+
+    private boolean userInputExit(String userInput){
+        return (userInput.equals("q") || userInput.equals("Q"));
+    }
+
+    private void processSelectValidMethod() {
+        printToScreen("\n");
+        printToScreen("Select a valid option!!\n");
+        processUserChoice();
+    }
+
+    private void processPrintAllBooks(BookProcessor bookProcessor) {
+        printToScreen("\n");
+        bookProcessor.printAllBooks("src/ListOfBooks.txt", printStream);
+        printMenu();
+        processUserChoice();
+    }
 
 
     ///////////////////////////////////////// MAIN ///////////////////////////////////////////////////

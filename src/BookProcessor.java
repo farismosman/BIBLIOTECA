@@ -1,5 +1,6 @@
 import org.apache.commons.io.FileUtils;
 
+import javax.jnlp.IntegrationService;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,14 +12,17 @@ import java.util.*;
 
 public class BookProcessor {
 
-    public SortedMap allBooks = new TreeMap();
-    private List<String> listOfBooks = readFile( "src/ListOfBooks.txt");
+    public static SortedMap allBooks = new TreeMap();
+    private static List<String> listOfBooks = readFile( "src/ListOfBooks.txt");
 
-    public void createAllBooksMap(){
+//    public BookProcessor() {
+//        createAllBooksMap();
+//    }
 
-        int i =0;
+    static{
+        int i = 0;
         for (String s:listOfBooks){
-            allBooks.put(i += 1, -1);
+            allBooks.put(i += 1, 0);
         }
     }
 
@@ -29,7 +33,7 @@ public class BookProcessor {
         printStream.println(fileContent);
     }
 
-    public List<String> readFile( String filename) {
+    public static List<String> readFile( String filename) {
 
         List<String> lines = null;
 
@@ -55,15 +59,15 @@ public class BookProcessor {
 
 
     public int requestABook(int bookNumber){
-        if (allBooks.get(bookNumber).equals(-1)){
+
+        if (allBooks.get(bookNumber).equals(0)){
             allBooks.put(bookNumber, 1);
             return 1;
-        } else {
-            return -1;
         }
+        else{
+            return -1;
 
+        }
     }
-
-
 
 }

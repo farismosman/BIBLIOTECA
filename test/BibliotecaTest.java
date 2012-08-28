@@ -60,12 +60,27 @@ public class BibliotecaTest {
     ////////////////////////////////////////  requesting a book functionality ///////////////////////
 
     @Test
-    public void testStatusOfBook() {
+    public void testAllBooksMap()  {
+        assertEquals(0, bookProcessor.allBooks.get(1));
+        assertEquals(0, bookProcessor.allBooks.get(2));
+        assertEquals(0, bookProcessor.allBooks.get(3));
+        assertEquals(0, bookProcessor.allBooks.get(4));
+    }
+
+    @Test
+    public void testAvailableBook() {
         bookProcessor.requestABook(1);
         assertEquals(1, bookProcessor.allBooks.get(1));
 
     }
 
+    @Test
+    public void testUnAvailableBook() {
+        bookProcessor.requestABook(1);
+        assertEquals(-1, bookProcessor.requestABook(1));
+        assertEquals(1, bookProcessor.allBooks.get(1));
+
+    }
 
     //////////////////////// Functional test //////////////////////////////////////
 
