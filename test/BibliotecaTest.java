@@ -2,15 +2,14 @@ import org.junit.Test;
 
 import java.io.*;
 
-import static org.junit.Assert.assertEquals;
-
+import static org.junit.Assert.*;
 
 public class BibliotecaTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private String inputString = "1";
     private byte[] inputByte = inputString.getBytes();
-    private final ByteArrayInputStream inContent = new ByteArrayInputStream(inputByte);
+    private ByteArrayInputStream inContent = new ByteArrayInputStream(inputByte);
 
     Biblioteca biblioteca = new Biblioteca(new PrintStream(outContent), inContent);
 
@@ -18,100 +17,86 @@ public class BibliotecaTest {
         return outContent.toString().trim();
     }
 
-    /////////////////////////////// print menu functionality ///////////////////////////////////
 
+    /////////////////////////////// print menu functionality ///////////////////////////////////
     @Test
     public void testPrintWelcomeMessage() {
         String message = "Welcome to the Bangalore Public Library System!!";
-        biblioteca.printToScreen(message);
+        biblioteca.printWelcomeMessage();
         assertEquals(message, outputConsole());
     }
 
     @Test
     public void testPrintAllBooksMenu() {
-        String message = "To view a list all the books in the library, type 1";
-        biblioteca.printToScreen(message);
+        String message = "To view a list all the books in the library, type 1\n" +
+                "To reserve a book, type 2";
+        biblioteca.printMenu();
         assertEquals(message, outputConsole());
     }
-
 
     /////////////////////////////// user input functionality /////////////////////////////////////
 
     @Test
-    public void testUserInput(){
+    public void testUserInput() {
         assertEquals(inputString, biblioteca.getUserInput());
     }
 
-    ////////////////////////////////// print AllBooks functionality /////////////////////////////////
 
-    private BookProcessor bookProcessor = new BookProcessor();
+    /////////////////////////////// test Print All Books //////////////////////////////
 
     @Test
-    public void   testPrintAllBooks(){
-        String expectedBookList="Little Red Riding Hood, Will Smith\n" +
+    public void testPrintAllBooks() {
+        String expectedBookList = "Little Red Riding Hood, Will Smith\n" +
                 "Small Giants, Bo Burlingham\n" +
                 "The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
                 "The Whuffie Factor, Tara Hunt";
 
-        bookProcessor.printAllBooks("src/ListOfBooks.txt", new PrintStream(outContent));
+        biblioteca.printAllBooks("src/ListOfBooks.txt");
         assertEquals(expectedBookList, outputConsole());
     }
 
-    ////////////////////////////////////////  requesting a book functionality ///////////////////////
-
-    @Test
-    public void testAllBooksMap()  {
-        assertEquals(0, bookProcessor.allBooks.get(1));
-        assertEquals(0, bookProcessor.allBooks.get(2));
-        assertEquals(0, bookProcessor.allBooks.get(3));
-        assertEquals(0, bookProcessor.allBooks.get(4));
-    }
-
-    @Test
-    public void testAvailableBook() {
-        bookProcessor.requestABook(1);
-        assertEquals(1, bookProcessor.allBooks.get(1));
-
-    }
-
-    @Test
-    public void testUnAvailableBook() {
-        bookProcessor.requestABook(1);
-        assertEquals(-1, bookProcessor.requestABook(1));
-        assertEquals(1, bookProcessor.allBooks.get(1));
-
-    }
 
     //////////////////////// Functional test //////////////////////////////////////
 
     @Test
-    public void FunctionalTestPrintWelcome() {
+    public void functionalTestBiblioteca() {
 
-        String expectedMessages = "Welcome to the Bangalore Public Library System!!\n"  +
-                "To view a list all the books in the library, type 1\n"  +
-                "To reserve a book, type 2 \n" +
-                ">";
-         String pressed1 = " \n\n" +
-                "Little Red Riding Hood, Will Smith\n"+
+        String welcome = "Welcome to the Bangalore Public Library System!!\n";
+
+        String pressed1 = " \n\n" +
+                "Little Red Riding Hood, Will Smith\n" +
                 "Small Giants, Bo Burlingham\n" +
                 "The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
-                "The Whuffie Factor, Tara Hunt";
+                "The Whuffie Factor, Tara Hunt\n\n";
+
+        String menu = "To view a list all the books in the library, type 1\n" +
+                "To reserve a book, type 2 \n" + ">";
+
 
         String pressed2 = " \n" +
-                "\nEnter Book title";
+                "\nEnter Book number:\n" + ">";
 
-        String pressedNotValid = "\nSelect a valid option!!\n> ";
+        String twoSuccessful = " Book reserved successfully. Thank you for using our library.\n";
 
-        if (inputString.equals("1")){
-            expectedMessages = expectedMessages + pressed1;
-        } else if (inputString.equals("2")){
-            expectedMessages = expectedMessages + pressed2;
-        } else {
-            expectedMessages = expectedMessages + pressedNotValid;
-        }
+//        String pressedq = " \n" +
+//                "\nSelect a valid option!!\n\n"+ ">";
+
+        String expectedMessagesAll = welcome + menu + pressed1 + menu + pressed2 + twoSuccessful + "\n\n" + menu;
+
+        biblioteca = bibliotecaWithInput("1\n2\n2\nq");
 
         biblioteca.run();
-        assertEquals(expectedMessages, outputConsole());
+
+        assertEquals(expectedMessagesAll, outputConsole());
     }
+
+
+    private Biblioteca bibliotecaWithInput(String inputString) {
+        inputByte = inputString.getBytes();
+        ByteArrayInputStream thisInContent = new ByteArrayInputStream(inputByte);
+
+        return new Biblioteca(new PrintStream(outContent), thisInContent);
+    }
+
 
 }

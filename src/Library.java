@@ -1,37 +1,36 @@
 import org.apache.commons.io.FileUtils;
 
-import javax.jnlp.IntegrationService;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 import java.io.PrintStream;
 import java.util.*;
 
 
-public class BookProcessor {
+public class Library {
 
-    public static SortedMap allBooks = new TreeMap();
-    private static List<String> listOfBooks = readFile( "src/ListOfBooks.txt");
+    public SortedMap allBooks = new TreeMap();
+    private final int BookIsAvailable = 0;
+    private final int BookIsUnAvailable = 1;
 
-//    public BookProcessor() {
-//        createAllBooksMap();
-//    }
 
-    static{
+    private  List<String> listOfBooks = Library.readFile( "src/ListOfBooks.txt");
+
+    public Library() {
+        createAllBooks();
+    }
+
+    private void createAllBooks(){
         int i = 0;
         for (String s:listOfBooks){
-            allBooks.put(i += 1, 0);
+            allBooks.put(i += 1, BookIsAvailable);
         }
     }
 
 
-
-    public void printAllBooks(String filename, PrintStream printStream){
-        String fileContent = readFileToString(filename);
-        printStream.println(fileContent);
+    public SortedMap getAllBooks() {
+        return Collections.unmodifiableSortedMap(allBooks);
     }
+
 
     public static List<String> readFile( String filename) {
 
@@ -60,14 +59,16 @@ public class BookProcessor {
 
     public int requestABook(int bookNumber){
 
-        if (allBooks.get(bookNumber).equals(0)){
-            allBooks.put(bookNumber, 1);
+        if (bookExistsAndIsAvailable(bookNumber)){
+            allBooks.put(bookNumber, BookIsUnAvailable);
             return 1;
-        }
-        else{
+        } else {
             return -1;
 
         }
     }
 
+    public boolean bookExistsAndIsAvailable(int bookNumber){
+        return  ( (bookNumber < allBooks.size()) && (allBooks.get(bookNumber).equals(BookIsAvailable)));
+    }
 }

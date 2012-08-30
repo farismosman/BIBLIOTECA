@@ -1,0 +1,8 @@
+0. rename BookProcessor  to Library ------- DONE
+1. Fix functional test of Biblioteca------- DONE
+2. Make a separate test class for Library------- DONE
+3. Change constants to a Java constant ----- DONE
+4. find public methods that can be private-ed and do so
+5. find if more class could be introduced to make our lives easier. ++++++ not convinced yet...
+6. refactor those if -- if -- else- if in the functional test of Biblioteca. ----- DONE
+7. get rid of the static method and fields in Library ----- DONE

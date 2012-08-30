@@ -1,14 +1,22 @@
 
 import java.io.*;
+import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class Biblioteca {
 
     private PrintStream printStream;
-    private InputStream inStream;
+
+    private BufferedReader bufferRead;
+    private boolean quit;
+
+    private  Library library = new Library();
 
     public Biblioteca(PrintStream printStream, InputStream inStream){
         this.printStream = printStream;
-        this.inStream = inStream;
+        this.bufferRead  = new BufferedReader(new InputStreamReader(inStream));
+
     }
 
     ////////////////////////////////////////////////////// Print Menu //////////////////////////////////////
@@ -33,23 +41,29 @@ public class Biblioteca {
         printToScreen(Option2Message);
     }
 
-    public void printToScreen(String message){
+    private void printToScreen(String message){
         printStream.println(message);
     }
 
-    private void prompt() {
-        printStream.print("> ");
+    public void printAllBooks(String filename){
+        String listOfAllBooks = library.readFileToString(filename);
+        printToScreen(listOfAllBooks);
     }
+
 
     /////////////////////////////////////////////////////// Get user input //////////////////////////////
 
+    private String  prompt() {
+        printStream.print("> ");
+        return getUserInput();
+    }
 
     public String getUserInput(){
 
         String userInput = "";
 
         try{
-            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(inStream));
+//            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(inStream));
             userInput = bufferRead.readLine();
         }
         catch(IOException e)
@@ -61,44 +75,43 @@ public class Biblioteca {
 
 
     public void processUserChoice(){
-        prompt();
-        String userInput= getUserInput();
-        BookProcessor bookProcessor = new BookProcessor();
+        String userInput= prompt();
 
         if (userInput.equals("1")) {
-            processPrintAllBooks(bookProcessor);
+            processPrintAllBooks(library);
 
         } else if (userInput.equals("2")) {
-            processReserveABook(bookProcessor);
+            processReserveABook(library);
 
         } else if (userInputExit(userInput)){
-                System.exit(0);
+                quit = true;
 
         } else {
             processSelectValidMethod();
         }
      }
 
-    private void processReserveABook(BookProcessor bookProcessor) {
+    private void processReserveABook(Library library) {
         printToScreen("\n");
         printToScreen("Enter Book number:");
-        prompt();
-        String bookNumber = getUserInput();
+        String bookNumber = prompt();
         int bookStatus = -1;
-        bookStatus = bookProcessor.requestABook(Integer.valueOf(bookNumber));
+        bookStatus = library.requestABook(Integer.valueOf(bookNumber));
 
         if (bookStatus == -1){
             printToScreen("Book unavailable.");
-            printToScreen("\n");
-            printMenu();
-            processUserChoice();
+            returnToWelcomeScreen();
 
         } else {
             printToScreen("Book reserved successfully. Thank you for using our library.");
-            printToScreen("\n");
-            printMenu();
-            processUserChoice();
+            returnToWelcomeScreen();
         }
+    }
+
+    private void returnToWelcomeScreen() {
+        printToScreen("\n");
+        printMenu();
+        processUserChoice();
     }
 
     private boolean userInputExit(String userInput){
@@ -111,20 +124,23 @@ public class Biblioteca {
         processUserChoice();
     }
 
-    private void processPrintAllBooks(BookProcessor bookProcessor) {
+    private void processPrintAllBooks(Library library) {
         printToScreen("\n");
-        bookProcessor.printAllBooks("src/ListOfBooks.txt", printStream);
+        printAllBooks("src/ListOfBooks.txt");
         printMenu();
         processUserChoice();
     }
+
 
 
     ///////////////////////////////////////// MAIN ///////////////////////////////////////////////////
 
     public void run(){
         printWelcomeMessage();
-        printMenu();
-        processUserChoice();
+        while(!quit) {
+            printMenu();
+            processUserChoice();
+        }
     }
 
 
