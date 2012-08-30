@@ -1,45 +1,40 @@
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 import static org.junit.Assert.assertEquals;
 
 
 public class LibraryTest {
 
     private Library library = new Library();
-    private final int BookIsAvailable = 0;
-    private final int BookIsUnAvailable = 1;
-    private final int InvalidOption = -1;
+    private final int BookReserved = 1;
+    private final int BookCanNotBeReserved = -1;
+    private final int BookUnavailable = 0;
 
     @Test
-    public void testAllBooksMap()  {
-        assertEquals(BookIsAvailable, library.getAllBooks().get(1));
-        assertEquals(BookIsAvailable, library.getAllBooks().get(2));
-        assertEquals(BookIsAvailable, library.getAllBooks().get(3));
-        assertEquals(BookIsAvailable, library.getAllBooks().get(4));
+    public void testLibraryConstructor() throws Exception {
+        assertEquals(false, library.getAllBooks().isEmpty());
+
     }
 
     @Test
     public void testAvailableBook() {
-        library.requestABook(1);
-        assertEquals(BookIsUnAvailable, library.getAllBooks().get(1));
+        assertEquals(false, library.getAllBooks().get("1").isReserved());
+        assertEquals(BookReserved, library.requestABook("1"));
+        assertEquals(true, library.getAllBooks().get("1").isReserved());
 
     }
 
     @Test
     public void testUnAvailableBook() {
-        library.requestABook(1);
-        assertEquals(InvalidOption, library.requestABook(1));
-        assertEquals(BookIsUnAvailable, library.getAllBooks().get(1));
+        library.requestABook("1");
+        assertEquals(BookCanNotBeReserved, library.requestABook("1"));
+        assertEquals(true, library.getAllBooks().get("1").isReserved());
 
     }
 
     @Test
     public void testBookNotExisting(){
-        assertEquals(InvalidOption, library.requestABook(7));
+        assertEquals(BookUnavailable, library.requestABook("79009u8"));
 
     }
 

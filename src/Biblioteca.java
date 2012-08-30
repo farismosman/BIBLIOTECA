@@ -1,8 +1,5 @@
 
 import java.io.*;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 public class Biblioteca {
 
@@ -12,6 +9,10 @@ public class Biblioteca {
     private boolean quit;
 
     private  Library library = new Library();
+    private final int BookReserved = 1;
+    private final int BookCanNotBeReserved = -1;
+    private final int BookUnavailable = 0;
+
 
     public Biblioteca(PrintStream printStream, InputStream inStream){
         this.printStream = printStream;
@@ -22,32 +23,21 @@ public class Biblioteca {
     ////////////////////////////////////////////////////// Print Menu //////////////////////////////////////
 
     public void printWelcomeMessage(){
-        String welcomeMessage = "Welcome to the Bangalore Public Library System!!";
-        printToScreen(welcomeMessage);
+        printToScreen("Welcome to the Bangalore Public Library System!!");
     }
 
     public void printMenu(){
-        printAllBooksMenu();
-        printReserveABookMenu();
-    }
-
-    public void printAllBooksMenu(){
-        String Option1Message =  "To view a list all the books in the library, type 1";
-        printToScreen(Option1Message);
-    }
-
-    public void printReserveABookMenu(){
-        String Option2Message =  "To reserve a book, type 2 ";
-        printToScreen(Option2Message);
+        printToScreen("To view a list all the books in the library, type 1");
+        printToScreen("To reserve a book, type 2");
+        printToScreen("To check your library number, type 3");
     }
 
     private void printToScreen(String message){
         printStream.println(message);
     }
 
-    public void printAllBooks(String filename){
-        String listOfAllBooks = library.readFileToString(filename);
-        printToScreen(listOfAllBooks);
+    public void printAllBooks(){
+        printToScreen(library.allBooksTitles());
     }
 
 
@@ -63,7 +53,6 @@ public class Biblioteca {
         String userInput = "";
 
         try{
-//            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(inStream));
             userInput = bufferRead.readLine();
         }
         catch(IOException e)
@@ -74,8 +63,7 @@ public class Biblioteca {
     }
 
 
-    public void processUserChoice(){
-        String userInput= prompt();
+    public void processUserChoice(String userInput){
 
         if (userInput.equals("1")) {
             processPrintAllBooks(library);
@@ -85,6 +73,8 @@ public class Biblioteca {
 
         } else if (userInputExit(userInput)){
                 quit = true;
+        } else if (userInput.equals("3")) {
+            printToScreen("Please talk to a Librarian. Thank You.");
 
         } else {
             processSelectValidMethod();
@@ -93,25 +83,33 @@ public class Biblioteca {
 
     private void processReserveABook(Library library) {
         printToScreen("\n");
-        printToScreen("Enter Book number:");
-        String bookNumber = prompt();
-        int bookStatus = -1;
-        bookStatus = library.requestABook(Integer.valueOf(bookNumber));
+        printToScreen("Enter Book Number: ");
+        String bookKey = prompt();
+        int bookStatus = library.requestABook(bookKey);
 
-        if (bookStatus == -1){
-            printToScreen("Book unavailable.");
+        if (bookStatus == BookCanNotBeReserved){
+            printToScreen("Book has already been reserved by someone else.");
             returnToWelcomeScreen();
 
-        } else {
-            printToScreen("Book reserved successfully. Thank you for using our library.");
+        } else if (bookStatus == BookReserved) {
+            printToScreen("Thank you! Enjoy the book.");
+            returnToWelcomeScreen();
+        } else if (bookStatus == BookUnavailable) {
+            printToScreen("Sorry we don't have that book yet.");
             returnToWelcomeScreen();
         }
+
     }
 
     private void returnToWelcomeScreen() {
         printToScreen("\n");
         printMenu();
-        processUserChoice();
+        getAndProcessUserChoice();
+    }
+
+    private void getAndProcessUserChoice() {
+        String userInput = prompt();
+        processUserChoice(userInput);
     }
 
     private boolean userInputExit(String userInput){
@@ -121,14 +119,14 @@ public class Biblioteca {
     private void processSelectValidMethod() {
         printToScreen("\n");
         printToScreen("Select a valid option!!\n");
-        processUserChoice();
+        getAndProcessUserChoice();
     }
 
     private void processPrintAllBooks(Library library) {
         printToScreen("\n");
-        printAllBooks("src/ListOfBooks.txt");
+        printAllBooks();
         printMenu();
-        processUserChoice();
+        getAndProcessUserChoice();
     }
 
 
@@ -139,7 +137,7 @@ public class Biblioteca {
         printWelcomeMessage();
         while(!quit) {
             printMenu();
-            processUserChoice();
+            getAndProcessUserChoice();
         }
     }
 

@@ -6,3 +6,9 @@
 5. find if more class could be introduced to make our lives easier. ++++++ not convinced yet...
 6. refactor those if -- if -- else- if in the functional test of Biblioteca. ----- DONE
 7. get rid of the static method and fields in Library ----- DONE
+8. Create a class that handles allBooksTitles.
+9. Change the magical numbers into java's constants.
+10. Refactor all constants (java style).
+11. Add more unit tests.
+12. Reduce and redesign functional tests.
+13. Add the "Please talk to the ..." to the menu. ----- DONE

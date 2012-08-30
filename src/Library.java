@@ -1,74 +1,50 @@
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.util.List;
-import java.io.PrintStream;
 import java.util.*;
 
 
 public class Library {
 
-    public SortedMap allBooks = new TreeMap();
-    private final int BookIsAvailable = 0;
-    private final int BookIsUnAvailable = 1;
-
-
-    private  List<String> listOfBooks = Library.readFile( "src/ListOfBooks.txt");
+    private SortedMap<String, Book> allBooks = new TreeMap<String, Book>();
+    private final int BookReserved = 1;
+    private final int BookCanNotBeReserved = -1;
+    private final int BookUnavailable = 0;
 
     public Library() {
-        createAllBooks();
+        this.createAllBooks();
     }
 
-    private void createAllBooks(){
-        int i = 0;
-        for (String s:listOfBooks){
-            allBooks.put(i += 1, BookIsAvailable);
-        }
+    private void createAllBooks() {
+        allBooks.put("1", new Book("Little Red Riding Hood", "Will Smith"));
+        allBooks.put("2", new Book("Small Giants", "Bo Burlingham"));
+        allBooks.put("3", new Book("The Starfish and the Spider", "Rod Beckstrom, Ori Brafman"));
+        allBooks.put("4", new Book("The Whuffie Factor", "Tara Hunt"));
     }
 
 
-    public SortedMap getAllBooks() {
+    public SortedMap<String, Book> getAllBooks() {
         return Collections.unmodifiableSortedMap(allBooks);
     }
 
-
-    public static List<String> readFile( String filename) {
-
-        List<String> lines = null;
-
-        File asFile = new File(filename);
-        try {
-             lines = FileUtils.readLines(asFile);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public int requestABook(String bookKey) {
+        Book theBook = allBooks.get(bookKey);
+        if (theBook == null) {
+            return BookUnavailable;
         }
-        return lines;
-    }
-
-    public String readFileToString( String filename){
-
-        List<String> lines = readFile(filename);
-        StringBuilder toLine= new StringBuilder();
-        for (String s:lines){
-            toLine.append(s + "\n");
+        if (theBook.isReserved()) {
+            return BookCanNotBeReserved;
         }
-        return toLine.toString();
+
+        theBook.reserve();
+        return BookReserved;
     }
 
-
-
-    public int requestABook(int bookNumber){
-
-        if (bookExistsAndIsAvailable(bookNumber)){
-            allBooks.put(bookNumber, BookIsUnAvailable);
-            return 1;
-        } else {
-            return -1;
-
+    public String allBooksTitles() {
+        String allBookTitle = "";
+        for (String bookKey : allBooks.keySet()) {
+            Book book = allBooks.get(bookKey);
+            allBookTitle += book.consoleString(bookKey) + "\n";
         }
+
+        return allBookTitle;
     }
 
-    public boolean bookExistsAndIsAvailable(int bookNumber){
-        return  ( (bookNumber < allBooks.size()) && (allBooks.get(bookNumber).equals(BookIsAvailable)));
-    }
 }
