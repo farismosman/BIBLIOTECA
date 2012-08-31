@@ -7,29 +7,37 @@ import static org.junit.Assert.assertEquals;
 public class BibliotecaTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private String inputString = "1";
-    private byte[] inputByte = inputString.getBytes();
-    private ByteArrayInputStream inContent = new ByteArrayInputStream(inputByte);
+    Biblioteca biblioteca = bibliotecaSetOptions("1");
 
-    private final String welcome = "Welcome to the Bangalore Public Library System!!\n";
-    private final String menu = "To view a list all the books in the library, type 1\nTo reserve a book, type 2 \n>";
-    private final String reserveABookOption = " \n\nEnter Book Number: \n>";
-    private final String bookReserved = " Thank you! Enjoy the book.\n";
-    private final String bookCanNotBeReserved = " Book has already been reserved by someone else.\n";
-    private final String listAllBooks = "1- Little Red Riding Hood, Will Smith\n" +
+
+    private final String WELCOME = "Welcome to the Bangalore Public Library System!!\n";
+    private final String MENU = "To view a list all the books in the library, type 1\nTo reserve a book, type 2\nTo check your library number, type 3\n> ";
+    private final String RESERVE_A_BOOK_MESSAGE = "Enter Book Number: \n>";
+    private final String BOOK_RESERVED_MESSAGE = " Thank you! Enjoy the book.";
+    private final String BOOK_CAN_NOT_BE_RESERVED = " Book has already been reserved by someone else.\n";
+    private final String ALL_BOOKS = "1- Little Red Riding Hood, Will Smith\n" +
                                         "2- Small Giants, Bo Burlingham\n" +
                                         "3- The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
                                         "4- The Whuffie Factor, Tara Hunt";
 
+    private final String PRINT_ALL_BOOKS = "1";
+    private final String REQUEST_A_BOOK = "2";
+    private final String CHECK_LIBRARY_NUMBER_OPTION = "3";
+    private final String QUIT = "q";
+    private final String AND = "\n";
 
-    Biblioteca biblioteca = new Biblioteca(new PrintStream(outContent), inContent);
+
+    private Biblioteca bibliotecaSetOptions(String inputString) {
+        ByteArrayInputStream thisInContent = new ByteArrayInputStream(inputString.getBytes());
+        return new Biblioteca(new PrintStream(outContent), thisInContent);
+    }
 
     private String outputConsole() {
         return outContent.toString().trim();
     }
 
 
-    /////////////////////////////// print menu functionality ///////////////////////////////////
+    /////////////////////////////// print MENU functionality ///////////////////////////////////
     @Test
     public void testPrintWelcomeMessage() {
         String message = "Welcome to the Bangalore Public Library System!!";
@@ -51,85 +59,74 @@ public class BibliotecaTest {
 
     @Test
     public void testUserInput() {
-        biblioteca = bibliotecaWithInput("3");
+        biblioteca = bibliotecaSetOptions("some text sent through input injection");
 
-        assertEquals("3", biblioteca.getUserInput());
+        assertEquals("some text sent through input injection", biblioteca.getUserInput());
     }
-
-    @Test
-    public void testPrintAllBooks() {
-        biblioteca.printAllBooks();
-        assertEquals(listAllBooks, outputConsole());
-    }
-
 
     ////////////////////////////////////// test process User choices /////////////////////////
 
+
+    @Test
+    public void testProcessPrintAllBooks() throws Exception {
+        biblioteca.processUserChoice(PRINT_ALL_BOOKS);
+
+        assertEquals(ALL_BOOKS, outputConsole());
+
+    }
+
+
+    @Test
+    public void testProcessRequestABook() throws Exception {
+        biblioteca.processUserChoice(REQUEST_A_BOOK);
+
+        assertEquals(RESERVE_A_BOOK_MESSAGE + BOOK_RESERVED_MESSAGE, outputConsole());
+
+    }
+
     @Test
     public void testProcessCheckUserLibraryNumber() throws Exception {
-        biblioteca.processUserChoice("3");
+        biblioteca.processUserChoice(CHECK_LIBRARY_NUMBER_OPTION);
 
         assertEquals("Please talk to a Librarian. Thank You.", outputConsole());
 
     }
 
+    @Test
+    public void testProcessInvalidOption() throws Exception {
+        biblioteca.processUserChoice("unknown command");
+
+        assertEquals("Select a valid option!!", outputConsole());
+
+    }
+
+    @Test
+    public void testProcessQuit() throws Exception {
+        biblioteca.processUserChoice("q");
+
+        assertEquals(true, biblioteca.isQuit());
+
+    }
+
+
 
     //////////////////////// Functional test //////////////////////////////////////
-//
-//    @Test
-//    public void testSuccesookReservation() throws Exception {
-//        String expectedMessage = generateExpectedMessage(bookReserved);
-//
-//        biblioteca = bibliotecaWithInput("1\n2\n3\nq");
-//        biblioteca.run();
-//
-//        assertEquals(expectedMessage, outputConsole());
-//    }
-//
-//    @Test
-//    public void testFailingBookReservation() throws Exception {
-//        String expectedMessage = generateExpectedMessage(bookReserved + "\n\n" + menu + reserveABookOption + bookCanNotBeReserved);
-//
-//        biblioteca = bibliotecaWithInput("1\n2\n3\n2\n3\nq");
-//        biblioteca.run();
-//
-//        assertEquals(expectedMessage, outputConsole());
-//    }
-//
-//    @Test
-//     public void testUnavailableBook() throws Exception {
-//        String bookUnavailable = " Sorry we don't have that book yet.\n";
-//        String expectedMessage = generateExpectedMessage(bookUnavailable);
-//
-//        biblioteca = bibliotecaWithInput("1\n2\nfafhaj\nq");
-//        biblioteca.run();
-//
-//        assertEquals(expectedMessage , outputConsole());
-//    }
-//
-//    @Test
-//    public void testInvalidOption() throws Exception {
-//        String invalidOption = " \n\nSelect a valid option!!\n\n>";
-//        String expectedMessage = welcome + menu + invalidOption ;
-//
-//        biblioteca = bibliotecaWithInput("fafhaj\nq");
-//        biblioteca.run();
-//
-//        assertEquals(expectedMessage , outputConsole());
-//    }
-//
-//    public String generateExpectedMessage(String result) {
-//        return welcome + menu + " \n\n" + listAllBooks + "\n\n" + menu + reserveABookOption + result + "\n\n" + menu;
-//
-//    }
 
+    @Test
+    public void testBibliotecaMain() throws Exception {
+        String expectedMessage = expectedOutputOfMain();
+        String aBookNumber = "4";
 
+        biblioteca = bibliotecaSetOptions(PRINT_ALL_BOOKS + AND + REQUEST_A_BOOK + AND + aBookNumber + AND + QUIT);
+        biblioteca.run();
 
-    private Biblioteca bibliotecaWithInput(String inputString) {
-        inputByte = inputString.getBytes();
-        ByteArrayInputStream thisInContent = new ByteArrayInputStream(inputByte);
+        assertEquals(expectedMessage, outputConsole());
+    }
 
-        return new Biblioteca(new PrintStream(outContent), thisInContent);
+    private String expectedOutputOfMain() {
+        String expectedMessage = WELCOME + MENU + AND + ALL_BOOKS + AND + AND + AND + MENU + RESERVE_A_BOOK_MESSAGE + BOOK_RESERVED_MESSAGE + AND + AND + MENU;
+        expectedMessage = expectedMessage.trim();
+        return expectedMessage;
     }
 
 

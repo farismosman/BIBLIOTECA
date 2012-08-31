@@ -9,7 +9,7 @@ public class Library {
     private final int BookUnavailable = 0;
 
     public Library() {
-        this.createAllBooks();
+        createAllBooks();
     }
 
     private void createAllBooks() {

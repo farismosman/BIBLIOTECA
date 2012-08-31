@@ -6,12 +6,16 @@ public class Biblioteca {
     private PrintStream printStream;
 
     private BufferedReader bufferRead;
-    private boolean quit;
+    private boolean quit = false;
 
     private  Library library = new Library();
-    private final int BookReserved = 1;
-    private final int BookCanNotBeReserved = -1;
-    private final int BookUnavailable = 0;
+    private final int BOOK_RESERVED = 1;
+    private final int BOOK_CAN_NOT_BE_RESERVED = -1;
+    private final int BOOK_DOES_NOT_EXIST = 0;
+
+    private final String LIST_ALL_BOOKS = "1";
+    private final String REQUEST_A_BOOK = "2";
+    private final String CHECK_LIBRARY_NUMBER = "3";
 
 
     public Biblioteca(PrintStream printStream, InputStream inStream){
@@ -62,18 +66,20 @@ public class Biblioteca {
         return userInput;
     }
 
+    public boolean isQuit() {
+        return quit;
+    }
 
     public void processUserChoice(String userInput){
+        if (userInput.equals(LIST_ALL_BOOKS)) {
+            processPrintAllBooks();
 
-        if (userInput.equals("1")) {
-            processPrintAllBooks(library);
-
-        } else if (userInput.equals("2")) {
+        } else if (userInput.equals(REQUEST_A_BOOK)) {
             processReserveABook(library);
 
         } else if (userInputExit(userInput)){
                 quit = true;
-        } else if (userInput.equals("3")) {
+        } else if (userInput.equals(CHECK_LIBRARY_NUMBER)) {
             printToScreen("Please talk to a Librarian. Thank You.");
 
         } else {
@@ -82,34 +88,33 @@ public class Biblioteca {
      }
 
     private void processReserveABook(Library library) {
-        printToScreen("\n");
+//        printToScreen("\n");
         printToScreen("Enter Book Number: ");
         String bookKey = prompt();
         int bookStatus = library.requestABook(bookKey);
 
-        if (bookStatus == BookCanNotBeReserved){
+        if (bookStatus == BOOK_CAN_NOT_BE_RESERVED){
             printToScreen("Book has already been reserved by someone else.");
-            returnToWelcomeScreen();
-
-        } else if (bookStatus == BookReserved) {
+        } else if (bookStatus == BOOK_RESERVED) {
             printToScreen("Thank you! Enjoy the book.");
-            returnToWelcomeScreen();
-        } else if (bookStatus == BookUnavailable) {
+        } else if (bookStatus == BOOK_DOES_NOT_EXIST) {
             printToScreen("Sorry we don't have that book yet.");
-            returnToWelcomeScreen();
         }
 
     }
 
-    private void returnToWelcomeScreen() {
-        printToScreen("\n");
+    private void returnToMenuScreen() {
+        printToScreen("");
         printMenu();
-        getAndProcessUserChoice();
     }
 
     private void getAndProcessUserChoice() {
         String userInput = prompt();
         processUserChoice(userInput);
+        if (!quit){
+            returnToMenuScreen();
+            getAndProcessUserChoice();
+        }
     }
 
     private boolean userInputExit(String userInput){
@@ -117,28 +122,22 @@ public class Biblioteca {
     }
 
     private void processSelectValidMethod() {
-        printToScreen("\n");
-        printToScreen("Select a valid option!!\n");
-        getAndProcessUserChoice();
+        printToScreen("");
+        printToScreen("Select a valid option!!");
     }
 
-    private void processPrintAllBooks(Library library) {
-        printToScreen("\n");
+    private void processPrintAllBooks() {
+        printToScreen("");
         printAllBooks();
-        printMenu();
-        getAndProcessUserChoice();
     }
-
 
 
     ///////////////////////////////////////// MAIN ///////////////////////////////////////////////////
 
     public void run(){
         printWelcomeMessage();
-        while(!quit) {
-            printMenu();
-            getAndProcessUserChoice();
-        }
+        printMenu();
+        getAndProcessUserChoice();
     }
 
 

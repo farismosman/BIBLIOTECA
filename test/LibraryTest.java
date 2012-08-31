@@ -10,6 +10,17 @@ public class LibraryTest {
     private final int BookCanNotBeReserved = -1;
     private final int BookUnavailable = 0;
 
+    private final String listAllBooks = "1- Little Red Riding Hood, Will Smith\n" +
+            "2- Small Giants, Bo Burlingham\n" +
+            "3- The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
+            "4- The Whuffie Factor, Tara Hunt\n";
+
+
+    @Test
+    public void testListAllBooks() throws Exception {
+        assertEquals(listAllBooks, library.allBooksTitles());
+    }
+
     @Test
     public void testLibraryConstructor() throws Exception {
         assertEquals(false, library.getAllBooks().isEmpty());
