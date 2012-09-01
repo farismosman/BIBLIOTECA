@@ -6,9 +6,6 @@ import static org.junit.Assert.assertEquals;
 public class LibraryTest {
 
     private Library library = new Library();
-    private final int BookReserved = 1;
-    private final int BookCanNotBeReserved = -1;
-    private final int BookUnavailable = 0;
 
     private final String listAllBooks = "1- Little Red Riding Hood, Will Smith\n" +
             "2- Small Giants, Bo Burlingham\n" +
@@ -30,7 +27,7 @@ public class LibraryTest {
     @Test
     public void testAvailableBook() {
         assertEquals(false, library.getAllBooks().get("1").isReserved());
-        assertEquals(BookReserved, library.requestABook("1"));
+        assertEquals(library.getBOOK_RESERVED(), library.requestABook("1"));
         assertEquals(true, library.getAllBooks().get("1").isReserved());
 
     }
@@ -38,14 +35,14 @@ public class LibraryTest {
     @Test
     public void testUnAvailableBook() {
         library.requestABook("1");
-        assertEquals(BookCanNotBeReserved, library.requestABook("1"));
+        assertEquals(library.getBOOK_ALREADY_RESERVED(), library.requestABook("1"));
         assertEquals(true, library.getAllBooks().get("1").isReserved());
 
     }
 
     @Test
     public void testBookNotExisting(){
-        assertEquals(BookUnavailable, library.requestABook("79009u8"));
+        assertEquals(library.getBOOK_DOES_NOT_EXIST(), library.requestABook("79009u8"));
 
     }
 

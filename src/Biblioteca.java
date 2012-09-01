@@ -9,9 +9,9 @@ public class Biblioteca {
     private boolean quit = false;
 
     private  Library library = new Library();
-    private final int BOOK_RESERVED = 1;
-    private final int BOOK_CAN_NOT_BE_RESERVED = -1;
-    private final int BOOK_DOES_NOT_EXIST = 0;
+    private final int BOOK_RESERVED = library.getBOOK_RESERVED();
+    private final int BOOK_ALREADY_RESERVED = library.getBOOK_ALREADY_RESERVED();
+    private final int BOOK_DOES_NOT_EXIST = library.getBOOK_DOES_NOT_EXIST();
 
     private final String LIST_ALL_BOOKS = "1";
     private final String REQUEST_A_BOOK = "2";
@@ -22,6 +22,18 @@ public class Biblioteca {
         this.printStream = printStream;
         this.bufferRead  = new BufferedReader(new InputStreamReader(inStream));
 
+    }
+
+    public String getLIST_ALL_BOOKS() {
+        return LIST_ALL_BOOKS;
+    }
+
+    public String getREQUEST_A_BOOK() {
+        return REQUEST_A_BOOK;
+    }
+
+    public String getCHECK_LIBRARY_NUMBER() {
+        return CHECK_LIBRARY_NUMBER;
     }
 
     ////////////////////////////////////////////////////// Print Menu //////////////////////////////////////
@@ -83,17 +95,16 @@ public class Biblioteca {
             printToScreen("Please talk to a Librarian. Thank You.");
 
         } else {
-            processSelectValidMethod();
+            processSelectValidOption();
         }
      }
 
     private void processReserveABook(Library library) {
-//        printToScreen("\n");
         printToScreen("Enter Book Number: ");
         String bookKey = prompt();
         int bookStatus = library.requestABook(bookKey);
 
-        if (bookStatus == BOOK_CAN_NOT_BE_RESERVED){
+        if (bookStatus == BOOK_ALREADY_RESERVED){
             printToScreen("Book has already been reserved by someone else.");
         } else if (bookStatus == BOOK_RESERVED) {
             printToScreen("Thank you! Enjoy the book.");
@@ -121,7 +132,7 @@ public class Biblioteca {
         return (userInput.equals("q") || userInput.equals("Q"));
     }
 
-    private void processSelectValidMethod() {
+    private void processSelectValidOption() {
         printToScreen("");
         printToScreen("Select a valid option!!");
     }

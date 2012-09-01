@@ -14,15 +14,15 @@ public class BibliotecaTest {
     private final String MENU = "To view a list all the books in the library, type 1\nTo reserve a book, type 2\nTo check your library number, type 3\n> ";
     private final String RESERVE_A_BOOK_MESSAGE = "Enter Book Number: \n>";
     private final String BOOK_RESERVED_MESSAGE = " Thank you! Enjoy the book.";
-    private final String BOOK_CAN_NOT_BE_RESERVED = " Book has already been reserved by someone else.\n";
+    private final String BOOK_ALREADY_RESERVED = " Book has already been reserved by someone else.\n";
     private final String ALL_BOOKS = "1- Little Red Riding Hood, Will Smith\n" +
                                         "2- Small Giants, Bo Burlingham\n" +
                                         "3- The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
                                         "4- The Whuffie Factor, Tara Hunt";
 
-    private final String PRINT_ALL_BOOKS = "1";
-    private final String REQUEST_A_BOOK = "2";
-    private final String CHECK_LIBRARY_NUMBER_OPTION = "3";
+    private final String PRINT_ALL_BOOKS = biblioteca.getLIST_ALL_BOOKS();
+    private final String REQUEST_A_BOOK = biblioteca.getREQUEST_A_BOOK();
+    private final String CHECK_LIBRARY_NUMBER_OPTION = biblioteca.getCHECK_LIBRARY_NUMBER();
     private final String QUIT = "q";
     private final String AND = "\n";
 
@@ -84,6 +84,8 @@ public class BibliotecaTest {
 
     }
 
+
+
     @Test
     public void testProcessCheckUserLibraryNumber() throws Exception {
         biblioteca.processUserChoice(CHECK_LIBRARY_NUMBER_OPTION);
@@ -122,6 +124,19 @@ public class BibliotecaTest {
 
         assertEquals(expectedMessage, outputConsole());
     }
+
+//
+//    @Test
+//    public void testProcessBookAlreadyReserved() throws Exception {
+//        String aBookNumber = "4";
+//        biblioteca = bibliotecaSetOptions(REQUEST_A_BOOK + AND + aBookNumber + AND + REQUEST_A_BOOK + AND + aBookNumber + AND + QUIT);
+//        biblioteca.run();
+//
+//        assertEquals(RESERVE_A_BOOK_MESSAGE + BOOK_RESERVED_MESSAGE + RESERVE_A_BOOK_MESSAGE + BOOK_ALREADY_RESERVED, outputConsole());
+//
+//    }
+//
+
 
     private String expectedOutputOfMain() {
         String expectedMessage = WELCOME + MENU + AND + ALL_BOOKS + AND + AND + AND + MENU + RESERVE_A_BOOK_MESSAGE + BOOK_RESERVED_MESSAGE + AND + AND + MENU;

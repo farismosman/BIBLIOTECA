@@ -4,12 +4,24 @@ import java.util.*;
 public class Library {
 
     private SortedMap<String, Book> allBooks = new TreeMap<String, Book>();
-    private final int BookReserved = 1;
-    private final int BookCanNotBeReserved = -1;
-    private final int BookUnavailable = 0;
+    private final int BOOK_RESERVED = 1;
+    private final int BOOK_ALREADY_RESERVED = -1;
+    private final int BOOK_UNAVAILABLE = 0;
 
     public Library() {
         createAllBooks();
+    }
+
+    public int getBOOK_RESERVED() {
+        return BOOK_RESERVED;
+    }
+
+    public int getBOOK_ALREADY_RESERVED() {
+        return BOOK_ALREADY_RESERVED;
+    }
+
+    public int getBOOK_DOES_NOT_EXIST() {
+        return BOOK_UNAVAILABLE;
     }
 
     private void createAllBooks() {
@@ -27,14 +39,14 @@ public class Library {
     public int requestABook(String bookKey) {
         Book theBook = allBooks.get(bookKey);
         if (theBook == null) {
-            return BookUnavailable;
+            return BOOK_UNAVAILABLE;
         }
         if (theBook.isReserved()) {
-            return BookCanNotBeReserved;
+            return BOOK_ALREADY_RESERVED;
         }
 
         theBook.reserve();
-        return BookReserved;
+        return BOOK_RESERVED;
     }
 
     public String allBooksTitles() {
