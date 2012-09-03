@@ -9,31 +9,17 @@ public class Biblioteca {
     private boolean quit = false;
 
     private  Library library = new Library();
-    private final int BOOK_RESERVED = library.getBOOK_RESERVED();
-    private final int BOOK_ALREADY_RESERVED = library.getBOOK_ALREADY_RESERVED();
-    private final int BOOK_DOES_NOT_EXIST = library.getBOOK_DOES_NOT_EXIST();
 
-    private final String LIST_ALL_BOOKS = "1";
-    private final String REQUEST_A_BOOK = "2";
-    private final String CHECK_LIBRARY_NUMBER = "3";
+    public final String LIST_ALL_BOOKS = "1";
+    public final String REQUEST_A_BOOK = "2";
+    public final String CHECK_LIBRARY_NUMBER = "3";
+    public final String LIST_ALL_MOVIES = "4";
 
 
     public Biblioteca(PrintStream printStream, InputStream inStream){
         this.printStream = printStream;
         this.bufferRead  = new BufferedReader(new InputStreamReader(inStream));
 
-    }
-
-    public String getLIST_ALL_BOOKS() {
-        return LIST_ALL_BOOKS;
-    }
-
-    public String getREQUEST_A_BOOK() {
-        return REQUEST_A_BOOK;
-    }
-
-    public String getCHECK_LIBRARY_NUMBER() {
-        return CHECK_LIBRARY_NUMBER;
     }
 
     ////////////////////////////////////////////////////// Print Menu //////////////////////////////////////
@@ -46,6 +32,7 @@ public class Biblioteca {
         printToScreen("To view a list all the books in the library, type 1");
         printToScreen("To reserve a book, type 2");
         printToScreen("To check your library number, type 3");
+        printToScreen("To view movie records, type 4");
     }
 
     private void printToScreen(String message){
@@ -53,7 +40,7 @@ public class Biblioteca {
     }
 
     public void printAllBooks(){
-        printToScreen(library.allBooksTitles());
+        printStream.print(library.allBooksTitles());
     }
 
 
@@ -91,24 +78,41 @@ public class Biblioteca {
 
         } else if (userInputExit(userInput)){
                 quit = true;
+            
         } else if (userInput.equals(CHECK_LIBRARY_NUMBER)) {
             printToScreen("Please talk to a Librarian. Thank You.");
-
+            
+        } else if (userInput.equals(LIST_ALL_MOVIES)) {
+            processPrintAllMovies();
+            
         } else {
             processSelectValidOption();
         }
      }
+
+    private void processPrintAllMovies() {
+        printToScreen("");
+        printMovieHeader();
+        printStream.println(library.allMovieRecords());
+    }
+
+    private void printMovieHeader() {       
+        String formatter = "%-" + Movie.STRING_LENGTH + "s";
+        String whiteSpace = " ";
+        printStream.print(String.format("%s%s%s",whiteSpace, whiteSpace, whiteSpace));
+        printStream.println(String.format(formatter + formatter + formatter + "%-1s", "Title", "Actor", "Director", "Rating"));
+    }
 
     private void processReserveABook(Library library) {
         printToScreen("Enter Book Number: ");
         String bookKey = prompt();
         int bookStatus = library.requestABook(bookKey);
 
-        if (bookStatus == BOOK_ALREADY_RESERVED){
+        if (bookStatus == Library.BOOK_ALREADY_RESERVED){
             printToScreen("Book has already been reserved by someone else.");
-        } else if (bookStatus == BOOK_RESERVED) {
+        } else if (bookStatus == Library.BOOK_RESERVED) {
             printToScreen("Thank you! Enjoy the book.");
-        } else if (bookStatus == BOOK_DOES_NOT_EXIST) {
+        } else if (bookStatus == Library.BOOK_UNAVAILABLE) {
             printToScreen("Sorry we don't have that book yet.");
         }
 
