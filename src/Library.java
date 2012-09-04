@@ -6,7 +6,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 
-public class Library {
+public class 
+        Library {
 
     private SortedMap<String, Book> allBooks = new TreeMap<String, Book>();
     public static final int BOOK_RESERVED = 1;
@@ -28,15 +29,22 @@ public class Library {
                 new Movie("5", "Faris5", "Naval5, Naval8", "Dave5", "5")
         };
         for (Movie movie : movies) {
-            allMovies.put(movie.getKey(), movie);
+            allMovies.put(movie.getId(), movie);
         }
  }
 
     private void createAllBooks() {
-        allBooks.put("1", new Book("Little Red Riding Hood", "Will Smith"));
-        allBooks.put("2", new Book("Small Giants", "Bo Burlingham"));
-        allBooks.put("3", new Book("The Starfish and the Spider", "Rod Beckstrom, Ori Brafman"));
-        allBooks.put("4", new Book("The Whuffie Factor", "Tara Hunt"));
+        Book[] books = {
+                        new Book("1","Little Red Riding Hood", "Will Smith"),
+                        new Book("2","Small Giants", "Bo Burlingham"),
+                        new Book("3","The Starfish and the Spider", "Rod Beckstrom, Ori Brafman"),
+                        new Book("4","The Whuffie Factor", "Tara Hunt")              
+        };
+        
+        for (Book book: books){
+            allBooks.put(book.getId(), book);
+        }
+        
     }
     
     public SortedMap<String, Book> getAllBooks() {
@@ -57,13 +65,7 @@ public class Library {
     }
 
     public String allBooksTitles() {
-        String allBookTitle = "";
-        for (String bookKey : allBooks.keySet()) {
-            Book book = allBooks.get(bookKey);
-            allBookTitle += book.consoleString(bookKey) + "\n";
-        }
-
-        return allBookTitle;
+        return StringUtils.join(allBooks.values(), "\n") + "\n";
     }
 
     public String allMovieRecords(){

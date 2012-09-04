@@ -29,6 +29,7 @@ public class Biblioteca {
     }
 
     public void printMenu(){
+        printToScreen("");
         printToScreen("To view a list all the books in the library, type 1");
         printToScreen("To reserve a book, type 2");
         printToScreen("To check your library number, type 3");
@@ -91,16 +92,13 @@ public class Biblioteca {
      }
 
     private void processPrintAllMovies() {
-        printToScreen("");
         printMovieHeader();
         printStream.println(library.allMovieRecords());
     }
 
-    private void printMovieHeader() {       
-        String formatter = "%-" + Movie.STRING_LENGTH + "s";
-        String whiteSpace = " ";
-        printStream.print(String.format("%s%s%s",whiteSpace, whiteSpace, whiteSpace));
-        printStream.println(String.format(formatter + formatter + formatter + "%-1s", "Title", "Actor", "Director", "Rating"));
+    private void printMovieHeader() {
+        String formatter = "%-" + Movie.STRING_LENGTH + "s";       
+        printStream.println(String.format("ID " + formatter + formatter + formatter + "%-1s",  "Title", "Actor", "Director", "Rating"));
     }
 
     private void processReserveABook(Library library) {
@@ -116,20 +114,11 @@ public class Biblioteca {
             printToScreen("Sorry we don't have that book yet.");
         }
 
-    }
-
-    private void returnToMenuScreen() {
-        printToScreen("");
-        printMenu();
-    }
+    } 
 
     private void getAndProcessUserChoice() {
         String userInput = prompt();
-        processUserChoice(userInput);
-        if (!quit){
-            returnToMenuScreen();
-            getAndProcessUserChoice();
-        }
+        processUserChoice(userInput);     
     }
 
     private boolean userInputExit(String userInput){
@@ -151,10 +140,11 @@ public class Biblioteca {
 
     public void run(){
         printWelcomeMessage();
-        printMenu();
-        getAndProcessUserChoice();
+        while(!quit){
+            printMenu();
+            getAndProcessUserChoice();
+        }    
     }
-
 
     public static void main(String[] args) {
        new Biblioteca(System.out, System.in).run();

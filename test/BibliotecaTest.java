@@ -17,7 +17,7 @@ public class BibliotecaTest {
                                         "3- The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
                                         "4- The Whuffie Factor, Tara Hunt";
 
-    private final String ALL_MOVIES = "   Title               Actor               Director            Rating\n" +
+    private final String ALL_MOVIES = "ID Title               Actor               Director            Rating\n" +
                                     "1- Faris1              Naval1              Dave1               N/A\n" +
                                     "2- Faris2              Naval2              Dave2               2\n" +
                                     "3- Faris3, Faris2      Naval3              Dave3               3\n" +
@@ -59,6 +59,8 @@ public class BibliotecaTest {
         biblioteca.printMenu();
         assertEquals(message, outputConsole());
     }
+
+  
 
 
     /////////////////////////////// user input functionality /////////////////////////////////////

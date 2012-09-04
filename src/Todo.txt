@@ -2,13 +2,20 @@
 1. Fix functional test of Biblioteca------- DONE
 2. Make a separate test class for Library------- DONE
 3. Change constants to a Java constant ----- DONE
-4. find public methods that can be private-ed and do so
+4. find public methods that can be private-ed and do so ----- DONE
 5. find if more class could be introduced to make our lives easier. ++++++ not convinced yet...
 6. refactor those if -- if -- else- if in the functional test of Biblioteca. ----- DONE
 7. get rid of the static method and fields in Library ----- DONE
 8. Create a class that handles allBooksTitles.
-9. Change the magical numbers into java's constants.
-10. Refactor all constants (java style).
-11. Add more unit tests.
-12. Reduce and redesign functional tests.
+9. Change the magical numbers into java's constants. ------ DONE
+10. Refactor all constants (java style). 
+11. Add more unit tests. ----- DONE
+12. Reduce and redesign functional tests. ------ DONE
 13. Add the "Please talk to the ..." to the menu. ----- DONE
+------------------------------------------------------------------------
+14. Refactor if --- else if and use enum instead.
+15. Refactor Biblioteca class by adding new classes.
+16. Book/Movie ID should be automatically generated.
+17. Fix the \n in the text.
+18. Fix print an empty string to screen in Biblioteca. --- DONE
+19. Change the recursive method to while loop in getAndProcessUserChoice -- it could be broken into two methods or renamed. ---- DONE

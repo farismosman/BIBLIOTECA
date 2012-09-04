@@ -1,15 +1,13 @@
 import org.junit.Test;
 
-import java.io.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 public class BookTest {
 
     @Test
     public void testReserveABook() throws Exception {
-        Book book = new Book("title", "author");
+        Book book = new Book("0","title", "author");
         book.reserve();
         assertEquals(true, book.isReserved());
     }
