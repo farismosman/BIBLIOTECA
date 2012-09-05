@@ -10,27 +10,12 @@ public class BibliotecaTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     Biblioteca biblioteca = bibliotecaSetOptions("1");
 
-    private final String RESERVE_A_BOOK_MESSAGE = "Enter Book Number: \n>";
-    private final String BOOK_RESERVED_MESSAGE = " Thank you! Enjoy the book.";
-    private final String ALL_BOOKS = "1- Little Red Riding Hood, Will Smith\n" +
-                                        "2- Small Giants, Bo Burlingham\n" +
-                                        "3- The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
-                                        "4- The Whuffie Factor, Tara Hunt";
-
-    private final String ALL_MOVIES = "ID Title               Actor               Director            Rating\n" +
-                                    "1- Faris1              Naval1              Dave1               N/A\n" +
-                                    "2- Faris2              Naval2              Dave2               2\n" +
-                                    "3- Faris3, Faris2      Naval3              Dave3               3\n" +
-                                    "4- Faris4              Naval4              Dave4               4\n" +
-                                    "5- Faris5              Naval5, Naval8      Dave5               5";
+   
     
     private final String PRINT_ALL_BOOKS = MenuItem.LIST_ALL_BOOKS.getId();
     private final String REQUEST_A_BOOK = MenuItem.RESERVE_A_BOOK.getId();
-    private final String CHECK_LIBRARY_NUMBER_OPTION = MenuItem.CHECK_LIBRARY_NUMBER.getId();
     private final String QUIT = "q";
     private final String AND = "\n";
-    private final String LIST_ALL_MOVIES = MenuItem.LIST_ALL_MOVIES.getId();
-
 
     private Biblioteca bibliotecaSetOptions(String inputString) {
         ByteArrayInputStream thisInContent = new ByteArrayInputStream(inputString.getBytes());
@@ -83,42 +68,6 @@ public class BibliotecaTest {
 
     ////////////////////////////////////// test process User choices /////////////////////////
 
-
-    @Test
-    public void testProcessPrintAllBooks() throws Exception {
-        biblioteca.processUserChoice(PRINT_ALL_BOOKS);
-
-        assertEquals(ALL_BOOKS, outputConsole());
-
-    }
-
-
-    @Test
-    public void testProcessRequestABook() throws Exception {
-        biblioteca.processUserChoice(REQUEST_A_BOOK);
-
-        assertEquals(RESERVE_A_BOOK_MESSAGE + BOOK_RESERVED_MESSAGE, outputConsole());
-
-    }
-
-
-    @Test
-    public void testProcessPrintAllMovies() throws Exception {
-        biblioteca.processUserChoice(LIST_ALL_MOVIES);
-
-        assertEquals(ALL_MOVIES, outputConsole());
-
-    }
-
-
-    @Test
-    public void testProcessCheckUserLibraryNumber() throws Exception {
-        biblioteca.processUserChoice(CHECK_LIBRARY_NUMBER_OPTION);
-
-        assertEquals("Please talk to a Librarian. Thank You.", outputConsole());
-
-    }
-
     @Test
     public void testProcessInvalidOption() throws Exception {
         biblioteca.processUserChoice("unknown command");
@@ -142,7 +91,7 @@ public class BibliotecaTest {
     @Test
     public void testBibliotecaMain() throws Exception {
         String expectedMessage = expectedOutputOfPrintAllBooksAndReserveABook("test/printAllBooksAndReserveABookOutputMessage.txt");
-        String aBookNumber = "4";
+        String aBookNumber = "3";
 
         biblioteca = bibliotecaSetOptions(PRINT_ALL_BOOKS + AND + REQUEST_A_BOOK + AND + aBookNumber + AND + QUIT);
         biblioteca.run();

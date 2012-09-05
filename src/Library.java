@@ -6,8 +6,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 
-public class 
-        Library {
+public class Library {
 
     private SortedMap<String, Book> allBooks = new TreeMap<String, Book>();
     public static final int BOOK_RESERVED = 1;
