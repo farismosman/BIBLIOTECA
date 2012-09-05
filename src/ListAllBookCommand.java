@@ -1,15 +1,5 @@
-public class ListAllBookCommand implements Command {
-
-    private final Biblioteca biblioteca;
-    private final Library library;
-
-    public ListAllBookCommand(Biblioteca biblioteca, Library library) {
-
-        this.biblioteca = biblioteca;
-        this.library = library;
-    }
-
-    public void execute() {
+public class ListAllBookCommand implements Command { 
+    public void execute(Biblioteca biblioteca, Library library) {
         biblioteca.printToScreen("");
         biblioteca.printToScreen(library.allBooksTitles());
     }

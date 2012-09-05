@@ -1,6 +1,6 @@
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Biblioteca {
 
@@ -15,7 +15,6 @@ public class Biblioteca {
     public static final String REQUEST_A_BOOK = "2";
     public static final String CHECK_LIBRARY_NUMBER = "3";
     public static final String LIST_ALL_MOVIES = "4";
-    Map<String, Command> commands = userChoices();
 
     public Biblioteca(PrintStream printStream, InputStream inStream) {
         this.printStream = printStream;
@@ -30,10 +29,7 @@ public class Biblioteca {
 
     public void printMenu() {
         printToScreen("");
-        printToScreen("To view a list all the books in the library, type 1");
-        printToScreen("To reserve a book, type 2");
-        printToScreen("To check your library number, type 3");
-        printToScreen("To view movie records, type 4");
+        printToScreen(StringUtils.join(MenuItem.values(),  "\n"));
     }
 
     public void printToScreen(String message) {
@@ -61,25 +57,19 @@ public class Biblioteca {
     }
 
     public void processUserChoice(String userInput) {   
-        Command aCommand = commands.get(userInput);
-
+        
+        MenuItem menuItem = MenuItem.getFromCode(userInput);   
+        
+        
         if (userInput.equals("q")) {
             quit = true;
-        } else if (aCommand != null) {
-            aCommand.execute();
+        } else if (menuItem != null) {
+            menuItem.getCommand().execute(this, library);
         } else {
             processSelectValidOption();
         }
     }
 
-    private Map<String, Command> userChoices() {
-        Map<String, Command> commands = new HashMap<String, Command>();
-        commands.put(LIST_ALL_BOOKS, new ListAllBookCommand(this, library));
-        commands.put(REQUEST_A_BOOK, new RequestABookCommand(this , library));
-        commands.put(CHECK_LIBRARY_NUMBER, new CheckLibraryNumberCommand(this));
-        commands.put(LIST_ALL_MOVIES, new ListAllMoviesCommand(this, library));
-        return commands;
-    }    
 
     private void getAndProcessUserChoice() {
         String userInput = getUserInput();
@@ -106,4 +96,3 @@ public class Biblioteca {
     }
 
 }
-

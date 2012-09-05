@@ -1,15 +1,5 @@
 class RequestABookCommand implements Command {
-
-    private Biblioteca biblioteca;
-    private Library library;
-    
-    public RequestABookCommand(Biblioteca biblioteca, Library library) {
-        this.biblioteca = biblioteca;
-        this.library = library;
-    }
-
-
-    public void processReserveABook() {
+     public void execute(Biblioteca biblioteca, Library library) {
         biblioteca.printToScreen("Enter Book Number: ");
         String bookKey = biblioteca.getUserInput();
         int bookStatus = library.requestABook(bookKey);
@@ -21,10 +11,5 @@ class RequestABookCommand implements Command {
         } else if (bookStatus == Library.BOOK_UNAVAILABLE) {
             biblioteca.printToScreen("Sorry we don't have that book yet.");
         }
-    }
-    
-
-    public void execute() {
-        processReserveABook();
     }
 }

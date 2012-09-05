@@ -1,12 +1,5 @@
-public class CheckLibraryNumberCommand implements Command {
-
-    private Biblioteca biblioteca;
-
-    public CheckLibraryNumberCommand(Biblioteca biblioteca) {
-        this.biblioteca = biblioteca;
-    }
-
-    public void execute() {      
+public class CheckLibraryNumberCommand implements Command {    
+    public void execute(Biblioteca biblioteca, Library library) {      
         biblioteca.printToScreen("Please talk to a Librarian. Thank You.");
     }
 }

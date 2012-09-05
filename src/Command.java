@@ -1,4 +1,3 @@
-
-public interface Command {
-    public void execute();
+public interface Command {    
+    public void execute(Biblioteca biblioteca, Library library);
 }

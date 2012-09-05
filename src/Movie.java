@@ -1,7 +1,10 @@
+import java.text.MessageFormat;
+
 public class Movie {
 
 
-    public static final String STRING_LENGTH = "20";
+    private static final int LENGTH = 20;
+    public static final String FORMAT = MessageFormat.format("%s%-{0}s%-{0}s%-{0}s%-1s", LENGTH);
     private String id;
     private String title;
     private String actor;
@@ -18,8 +21,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        String formatter = "%-"+ STRING_LENGTH+ "s";
-        return  id + "- " + String.format(formatter+ "%-20s%-20s%-1s", title , actor , director , rating);
+        return  String.format(FORMAT, id + "- ", title , actor , director , rating);
     }
 
     public String getId() {
