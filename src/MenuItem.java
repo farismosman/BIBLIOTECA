@@ -31,4 +31,8 @@ public enum MenuItem {
     public Command getCommand() {
         return command;
     }
+
+    public String getId() {
+        return id;
+    }
 }

@@ -24,13 +24,12 @@ public class BibliotecaTest {
                                     "4- Faris4              Naval4              Dave4               4\n" +
                                     "5- Faris5              Naval5, Naval8      Dave5               5";
     
-    private final String PRINT_ALL_BOOKS = biblioteca.LIST_ALL_BOOKS;
-    private final String REQUEST_A_BOOK = biblioteca.REQUEST_A_BOOK;
-    private final String CHECK_LIBRARY_NUMBER_OPTION = biblioteca.CHECK_LIBRARY_NUMBER;
+    private final String PRINT_ALL_BOOKS = MenuItem.LIST_ALL_BOOKS.getId();
+    private final String REQUEST_A_BOOK = MenuItem.RESERVE_A_BOOK.getId();
+    private final String CHECK_LIBRARY_NUMBER_OPTION = MenuItem.CHECK_LIBRARY_NUMBER.getId();
     private final String QUIT = "q";
-    private final String UPCASE_QUIT = "Q";
     private final String AND = "\n";
-    private final String LIST_ALL_MOVIES = biblioteca.LIST_ALL_MOVIES;
+    private final String LIST_ALL_MOVIES = MenuItem.LIST_ALL_MOVIES.getId();
 
 
     private Biblioteca bibliotecaSetOptions(String inputString) {

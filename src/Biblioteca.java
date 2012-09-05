@@ -11,11 +11,6 @@ public class Biblioteca {
 
     private Library library = new Library();
 
-    public static String LIST_ALL_BOOKS = "1";
-    public static final String REQUEST_A_BOOK = "2";
-    public static final String CHECK_LIBRARY_NUMBER = "3";
-    public static final String LIST_ALL_MOVIES = "4";
-
     public Biblioteca(PrintStream printStream, InputStream inStream) {
         this.printStream = printStream;
         this.bufferRead = new BufferedReader(new InputStreamReader(inStream));        
