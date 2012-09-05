@@ -65,7 +65,7 @@ public class
     }
 
     public String allBooksTitles() {
-        return StringUtils.join(allBooks.values(), "\n") + "\n";
+        return StringUtils.join(allBooks.values(), "\n");
     }
 
     public String allMovieRecords(){

@@ -28,6 +28,7 @@ public class BibliotecaTest {
     private final String REQUEST_A_BOOK = biblioteca.REQUEST_A_BOOK;
     private final String CHECK_LIBRARY_NUMBER_OPTION = biblioteca.CHECK_LIBRARY_NUMBER;
     private final String QUIT = "q";
+    private final String UPCASE_QUIT = "Q";
     private final String AND = "\n";
     private final String LIST_ALL_MOVIES = biblioteca.LIST_ALL_MOVIES;
 
@@ -71,6 +72,15 @@ public class BibliotecaTest {
 
         assertEquals("some text sent through input injection", biblioteca.getUserInput());
     }
+
+    @Test
+    public void testUserInputIsLowerCased() {
+        biblioteca = bibliotecaSetOptions("Q");
+
+        assertEquals("q", biblioteca.getUserInput());
+    }
+    
+    
 
     ////////////////////////////////////// test process User choices /////////////////////////
 
@@ -124,7 +134,7 @@ public class BibliotecaTest {
 
         assertEquals(true, biblioteca.isQuit());
 
-    }
+    }  
 
 
 

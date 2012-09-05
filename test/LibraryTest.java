@@ -10,7 +10,7 @@ public class LibraryTest {
     private final String listAllBooks = "1- Little Red Riding Hood, Will Smith\n" +
             "2- Small Giants, Bo Burlingham\n" +
             "3- The Starfish and the Spider, Rod Beckstrom, Ori Brafman\n" +
-            "4- The Whuffie Factor, Tara Hunt\n";
+            "4- The Whuffie Factor, Tara Hunt";
 
 
     private final String allMovies ="1- Faris1              Naval1              Dave1               N/A\n" +

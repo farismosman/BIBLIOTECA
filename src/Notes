@@ -9,3 +9,7 @@
 2- Naming convention:
 * use the things that were given in the problem description as far as possible.
 *  say what it is or what it does not something else.
+
+
+3- refactoring:
+State your goal and idea first -- like from what you are right now to where you want to be after refactoring -- and work it out from there.

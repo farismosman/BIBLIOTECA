@@ -6,7 +6,7 @@
 5. find if more class could be introduced to make our lives easier. ++++++ not convinced yet...
 6. refactor those if -- if -- else- if in the functional test of Biblioteca. ----- DONE
 7. get rid of the static method and fields in Library ----- DONE
-8. Create a class that handles allBooksTitles.
+8. Create a class that handles allBooksTitles. 
 9. Change the magical numbers into java's constants. ------ DONE
 10. Refactor all constants (java style). 
 11. Add more unit tests. ----- DONE
@@ -14,7 +14,7 @@
 13. Add the "Please talk to the ..." to the menu. ----- DONE
 ------------------------------------------------------------------------
 14. Refactor if --- else if and use enum instead.
-15. Refactor Biblioteca class by adding new classes.
+15. Refactor Biblioteca class by adding new classes.  
 16. Book/Movie ID should be automatically generated.
 17. Fix the \n in the text.
 18. Fix print an empty string to screen in Biblioteca. --- DONE
