@@ -14,4 +14,12 @@ public class User {
         }
         return userStatus;
     }
+
+    public boolean isLoggedIn() {
+        return userStatus;
+    }
+
+    public String getLibraryNumber() {
+        return libraryNumber;
+    }
 }

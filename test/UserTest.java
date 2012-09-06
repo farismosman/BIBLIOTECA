@@ -20,7 +20,10 @@ public class UserTest {
         assertEquals(true, user.login(libraryNumber, password));
 
     }
-    
-    
-    
+
+    @Test
+    public void testIfLoggedIn() throws Exception {
+        User theUser = new User(libraryNumber, password);
+        assertEquals(false, theUser.isLoggedIn());
+    }
 }

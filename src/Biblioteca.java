@@ -11,6 +11,8 @@ public class Biblioteca {
 
     private Library library = new Library();
 
+    public User currentUser = new User(" "," ");
+
     public Biblioteca(PrintStream printStream, InputStream inStream) {
         this.printStream = printStream;
         this.bufferRead = new BufferedReader(new InputStreamReader(inStream));        
@@ -75,6 +77,14 @@ public class Biblioteca {
         printToScreen("");
         printToScreen("Select a valid option!!");
     }
+
+    public boolean aUserisLoggedIn() {
+        return currentUser.isLoggedIn();
+    }
+
+    public String currentUserLibraryNumber() {
+        return currentUser.getLibraryNumber();
+    }
  
     ///////////////////////////////////////// MAIN ///////////////////////////////////////////////////
 
@@ -90,4 +100,5 @@ public class Biblioteca {
         new Biblioteca(System.out, System.in).run();
     }
 
+  
 }

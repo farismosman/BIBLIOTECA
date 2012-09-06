@@ -5,8 +5,10 @@ public class UsersDataBase {
 
     public static final int USER_DATA_BASE_SIZE = 10;
     private Map<String, User> userDataBase = new HashMap<String, User>();
+    private Biblioteca biblioteca;
 
-    public UsersDataBase() {
+    public UsersDataBase(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
         createUserDataBase();
     }
 
@@ -19,17 +21,16 @@ public class UsersDataBase {
             userDataBase.put(libraryNumber, new User(libraryNumber, password));
         }
     }
-
+    
+    
     public String getLibraryNumber(String libraryNumber, String password) {
-        User theUser = userDataBase.get(libraryNumber);
+        User theUser = userDataBase.get(libraryNumber);        
+        
         if (theUser != null && theUser.login(libraryNumber, password)) {
-            return libraryNumber;
+           biblioteca.currentUser = theUser; 
+           return libraryNumber;
         }
 
         return null;
     }
-
-//    private boolean loggedInSuccessfully(String libraryNumber, String password, User theUser) {
-//        return (theUser != null) && theUser.login(libraryNumber, password);
-//    }
 }
