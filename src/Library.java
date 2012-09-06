@@ -8,10 +8,10 @@ import java.util.TreeMap;
 
 public class Library {
 
+    public static final String BOOK_ALREADY_RESERVED = "Book has already been reserved by someone else.";
+    public static final String BOOK_RESERVED = "Thank you! Enjoy the book.";
+    public static final String BOOK_UNAVAILABLE = "Sorry we don't have that book yet.";
     private SortedMap<String, Book> allBooks = new TreeMap<String, Book>();
-    public static final int BOOK_RESERVED = 1;
-    public static final int BOOK_ALREADY_RESERVED = -1;
-    public static final int BOOK_UNAVAILABLE = 0;
     private SortedMap<String,Movie> allMovies = new TreeMap<String, Movie>();
 
     public Library() {
@@ -50,7 +50,7 @@ public class Library {
         return Collections.unmodifiableSortedMap(allBooks);
     }
 
-    public int requestABook(String bookKey) {
+    public String requestABook(String bookKey) {
         Book theBook = allBooks.get(bookKey);
         if (theBook == null) {
             return BOOK_UNAVAILABLE;
