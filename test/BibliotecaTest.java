@@ -66,7 +66,7 @@ public class BibliotecaTest {
     
     
 
-    ////////////////////////////////////// test process User choices /////////////////////////
+    ////////////////////////////////////// testIsLoggedIn process User choices /////////////////////////
 
     @Test
     public void testProcessInvalidOption() throws Exception {
@@ -86,11 +86,11 @@ public class BibliotecaTest {
 
 
 
-    //////////////////////// Functional test //////////////////////////////////////
+    //////////////////////// Functional testIsLoggedIn //////////////////////////////////////
 
     @Test
     public void testBibliotecaMain() throws Exception {
-        String expectedMessage = expectedOutputOfPrintAllBooksAndReserveABook("test/printAllBooksAndReserveABookOutputMessage.txt");
+        String expectedMessage = expectedOutputOfPrintAllBooksAndReserveABook("testIsLoggedIn/printAllBooksAndReserveABookOutputMessage.txt");
         String aBookNumber = "3";
 
         biblioteca = bibliotecaSetOptions(PRINT_ALL_BOOKS + AND + REQUEST_A_BOOK + AND + aBookNumber + AND + QUIT);
