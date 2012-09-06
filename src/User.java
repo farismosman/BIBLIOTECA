@@ -8,17 +8,10 @@ public class User {
         this.password = password;
     }
 
-    public boolean isLoggedIn() {
-        return userStatus;
-    }
-
-    public void changeUserStatus() {
-          userStatus = !userStatus;
-    }
-
-    public void login(String libraryNumber, String password) {
-        if (libraryNumber.equals(this.libraryNumber) && password.equals(this.password)){
-            changeUserStatus();
+    public boolean login(String libraryNumber, String password) {
+        if (libraryNumber.equals(this.libraryNumber) && password.equals(this.password)) {
+            userStatus = true;
         }
+        return userStatus;
     }
 }

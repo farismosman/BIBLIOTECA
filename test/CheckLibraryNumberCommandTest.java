@@ -9,16 +9,43 @@ import static org.junit.Assert.assertEquals;
 public class CheckLibraryNumberCommandTest {
 
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    PrintStream outContentStream = new PrintStream(outContent);
-    ByteArrayInputStream inContentStream = new ByteArrayInputStream("someInputString".getBytes());
-    Biblioteca biblioteca = new Biblioteca(outContentStream, inContentStream);
+    private final  String libraryNumber = "111-1111";
+    private final String loginMessages = "username: \n> password: \n> ";
+    private final String then = "\n";
 
-
+    private Biblioteca bibliotecaInput(String inputString) {
+        ByteArrayInputStream thisInContent = new ByteArrayInputStream(inputString.getBytes());
+        return new Biblioteca(new PrintStream(outContent), thisInContent);
+    }
+    
     @Test
-    public void testProcessCheckUserLibraryNumber() throws Exception {
-        biblioteca.processUserChoice(MenuItem.CHECK_LIBRARY_NUMBER.getId());
+    public void testProcessCheckUserLibraryNumber() throws Exception {        
+        
+        String password = "password_0";
+        
+        Biblioteca biblioteca = bibliotecaInput(libraryNumber + then + password);        
+        
+        biblioteca.processUserChoice(MenuItem.CHECK_LIBRARY_NUMBER.getId());        
+        
+        String expectedMessages = loginMessages + "Your Library Number is: " + libraryNumber;  
 
-        assertEquals("Please talk to a Librarian. Thank You.", outContent.toString().trim());
+        assertEquals(expectedMessages, outContent.toString().trim());
 
     }
+
+    @Test
+    public void testProcessCheckUserLibraryNumberWithWrongPassword() throws Exception {
+
+        String password = "wrong_password";        
+
+        Biblioteca biblioteca = bibliotecaInput(libraryNumber + then + password);
+
+        biblioteca.processUserChoice(MenuItem.CHECK_LIBRARY_NUMBER.getId());
+        String expectedMessages = loginMessages + "Please talk to a Librarian. Thank You.";
+
+        assertEquals(expectedMessages, outContent.toString().trim());
+
+    }
+
+    
 }

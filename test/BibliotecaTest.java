@@ -58,7 +58,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void testUserInputIsLowerCased() {
+    public void testUserInptIsLowerCased() {
         biblioteca = bibliotecaSetOptions("Q");
 
         assertEquals("q", biblioteca.getUserInput());
@@ -86,11 +86,11 @@ public class BibliotecaTest {
 
 
 
-    //////////////////////// Functional testIsLoggedIn //////////////////////////////////////
+    //////////////////////// Functional test //////////////////////////////////////
 
     @Test
     public void testBibliotecaMain() throws Exception {
-        String expectedMessage = expectedOutputOfPrintAllBooksAndReserveABook("testIsLoggedIn/printAllBooksAndReserveABookOutputMessage.txt");
+        String expectedMessage = expectedOutputOfPrintAllBooksAndReserveABook("test/printAllBooksAndReserveABookOutputMessage.txt");
         String aBookNumber = "3";
 
         biblioteca = bibliotecaSetOptions(PRINT_ALL_BOOKS + AND + REQUEST_A_BOOK + AND + aBookNumber + AND + QUIT);
