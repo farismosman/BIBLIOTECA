@@ -5,10 +5,10 @@ public class UsersDataBase {
 
     public static final int USER_DATA_BASE_SIZE = 10;
     private Map<String, User> userDataBase = new HashMap<String, User>();
-    private Biblioteca biblioteca;
+    private static String currentLibraryNumber = null;
+    
 
-    public UsersDataBase(Biblioteca biblioteca) {
-        this.biblioteca = biblioteca;
+    public UsersDataBase() {
         createUserDataBase();
     }
 
@@ -24,13 +24,25 @@ public class UsersDataBase {
     
     
     public String getLibraryNumber(String libraryNumber, String password) {
-        User theUser = userDataBase.get(libraryNumber);        
+        User theUser = userDataBase.get(libraryNumber);       
+        
         
         if (theUser != null && theUser.login(libraryNumber, password)) {
-           biblioteca.currentUser = theUser; 
-           return libraryNumber;
+           currentLibraryNumber = libraryNumber; 
+           return "Your Library Number is: " + libraryNumber + ", to logout type logout.";
         }
 
-        return null;
+        return "Please talk to a Librarian. Thank You.";
     }
+
+
+    public static String getCurrentLibraryNumber() {
+        return currentLibraryNumber;
+    }
+    
+    public static void logoutCurrentUser(){
+        currentLibraryNumber = null;
+        
+    }
+
 }

@@ -8,7 +8,7 @@ public class UserTest {
     private String password; 
 
     @Test
-    public void testLoggin() throws Exception {
+    public void testLogin() throws Exception {
 
         libraryNumber = "111-1111";
         password = "password";
@@ -22,8 +22,15 @@ public class UserTest {
     }
 
     @Test
-    public void testIfLoggedIn() throws Exception {
-        User theUser = new User(libraryNumber, password);
-        assertEquals(false, theUser.isLoggedIn());
+    public void testLogout() throws Exception {
+
+        libraryNumber = "111-1111";
+        password = "password";
+        User user = new User(libraryNumber, password);
+        user.login(libraryNumber, password);
+        
+        assertEquals(false, user.logout());
+
     }
+    
 }

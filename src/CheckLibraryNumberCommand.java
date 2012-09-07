@@ -3,26 +3,16 @@ public class CheckLibraryNumberCommand implements Command {
 
         String theLibraryNumber;
 
-        if (biblioteca.aUserisLoggedIn()) {
+        if (UsersDataBase.getCurrentLibraryNumber() != null) {
+            theLibraryNumber = "Your Library Number is: " + UsersDataBase.getCurrentLibraryNumber() + ", to logout type logout.";
             
-            theLibraryNumber = "Your Library Number is: " + biblioteca.currentUserLibraryNumber();
         } else {
-
-            biblioteca.printToScreen("username: ");
-            String libraryNumber = biblioteca.getUserInput();
-
-            biblioteca.printToScreen("password: ");
-            String password = biblioteca.getUserInput();
-
-            String libraryNUmberFromDataBase = new UsersDataBase(biblioteca).getLibraryNumber(libraryNumber, password);
-
-            if (libraryNUmberFromDataBase == null) {
-                theLibraryNumber = "Please talk to a Librarian. Thank You.";
-            } else {
-                theLibraryNumber = "Your Library Number is: " + libraryNumber;
-            }            
+            String libraryNumber = biblioteca.loginDetails("username: ");
+            String password = biblioteca.loginDetails("password: ");
+            theLibraryNumber = new UsersDataBase().getLibraryNumber(libraryNumber, password);           
         }
         
         biblioteca.printToScreen(theLibraryNumber);
     }
+   
 }

@@ -28,7 +28,7 @@ public enum MenuItem {
         return null;
     }
 
-    public Command getCommand() {
+    public Command getUserCommand() {
         return command;
     }
 

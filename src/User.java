@@ -15,11 +15,9 @@ public class User {
         return userStatus;
     }
 
-    public boolean isLoggedIn() {
+    public boolean logout() {
+        userStatus = false;
+        UsersDataBase.logoutCurrentUser();
         return userStatus;
-    }
-
-    public String getLibraryNumber() {
-        return libraryNumber;
     }
 }

@@ -10,8 +10,7 @@ public class Biblioteca {
     private boolean quit = false;
 
     private Library library = new Library();
-
-    public User currentUser = new User(" "," ");
+   
 
     public Biblioteca(PrintStream printStream, InputStream inStream) {
         this.printStream = printStream;
@@ -61,7 +60,7 @@ public class Biblioteca {
         if (userInput.equals("q")) {
             quit = true;
         } else if (menuItem != null) {
-            menuItem.getCommand().execute(this, library);
+            menuItem.getUserCommand().execute(this, library);
         } else {
             processSelectValidOption();
         }
@@ -78,14 +77,10 @@ public class Biblioteca {
         printToScreen("Select a valid option!!");
     }
 
-    public boolean aUserisLoggedIn() {
-        return currentUser.isLoggedIn();
+    public String loginDetails(String item) {
+        printToScreen(item);
+        return getUserInput();
     }
-
-    public String currentUserLibraryNumber() {
-        return currentUser.getLibraryNumber();
-    }
- 
     ///////////////////////////////////////// MAIN ///////////////////////////////////////////////////
 
     public void run() {

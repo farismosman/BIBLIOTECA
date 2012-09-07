@@ -13,7 +13,7 @@
 12. Reduce and redesign functional tests. ------ DONE
 13. Add the "Please talk to the ..." to the menu. ----- DONE
 ------------------------------------------------------------------------
-14. Refactor if --- else if and use enum instead.
+14. Refactor if --- else if and use enum instead.---- DONE
 15. Refactor Biblioteca class by adding new classes.  
 16. Book/Movie ID should be automatically generated.
 17. Fix the \n in the text.
