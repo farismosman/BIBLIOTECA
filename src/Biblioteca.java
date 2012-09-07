@@ -59,8 +59,11 @@ public class Biblioteca {
         
         if (userInput.equals("q")) {
             quit = true;
+        } else if (userInput.equals("logout")){
+            UsersDataBase.logoutCurrentUser();
+            printToScreen("You are logged out successfully.");
         } else if (menuItem != null) {
-            menuItem.getUserCommand().execute(this, library);
+            menuItem.getCommand().execute(this, library);
         } else {
             processSelectValidOption();
         }

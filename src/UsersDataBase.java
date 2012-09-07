@@ -45,4 +45,12 @@ public class UsersDataBase {
         
     }
 
+//private String whatever(){
+//    if (userInput().equals("logout") && currentLibraryNumber != null){
+//        currentLibraryNumber = null;
+//        return "logged out successfully";
+//    } else {
+//        return "You need to login first";
+//    }
+//}
 }

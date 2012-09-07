@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beb09db5-116a-4989-8782-c4d5b353ab30" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LogoutCommand.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/LogoutCommandTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/LogoutCommand.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/LogoutCommandTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Biblioteca.java" afterPath="$PROJECT_DIR$/src/Biblioteca.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CheckLibraryNumberCommand.java" afterPath="$PROJECT_DIR$/src/CheckLibraryNumberCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MenuItem.java" afterPath="$PROJECT_DIR$/src/MenuItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Todo.txt" afterPath="$PROJECT_DIR$/src/Todo.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/User.java" afterPath="$PROJECT_DIR$/src/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UsersDataBase.java" afterPath="$PROJECT_DIR$/src/UsersDataBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CheckLibraryNumberCommandTest.java" afterPath="$PROJECT_DIR$/test/CheckLibraryNumberCommandTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/UserTest.java" afterPath="$PROJECT_DIR$/test/UserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/UsersDataBaseTest.java" afterPath="$PROJECT_DIR$/test/UsersDataBaseTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/BibliotecaTest.java" afterPath="$PROJECT_DIR$/test/BibliotecaTest.java" />
     </list>
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -159,39 +153,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuItemTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/MenuItemTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogoutCommandTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/LogoutCommandTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogoutCommand.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LogoutCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="34" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Biblioteca.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Biblioteca.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="5" selection-start="1905" selection-end="2018" vertical-scroll-proportion="0.80194175">
+            <state line="72" column="44" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.41825095">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BibliotecaTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/BibliotecaTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="5" selection-start="2375" selection-end="2375" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -200,7 +174,7 @@
       <file leaf-file-name="MenuItem.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MenuItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="20" selection-start="975" selection-end="975" vertical-scroll-proportion="0.0">
+            <state line="4" column="75" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -218,7 +192,7 @@
       <file leaf-file-name="UsersDataBase.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UsersDataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="50" selection-start="1118" selection-end="1158" vertical-scroll-proportion="0.0">
+            <state line="43" column="36" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -237,22 +211,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Library.java" />
         <option value="$PROJECT_DIR$/src/RequestABookCommand.java" />
         <option value="$PROJECT_DIR$/src/BookStatus.java" />
         <option value="$PROJECT_DIR$/src/Notes" />
         <option value="$PROJECT_DIR$/test/LibraryUserTest.java" />
-        <option value="$PROJECT_DIR$/test/BibliotecaTest.java" />
         <option value="$PROJECT_DIR$/test/CheckLibraryNumberCommandTest.java" />
         <option value="$PROJECT_DIR$/test/UserTest.java" />
         <option value="$PROJECT_DIR$/src/LogoutCommand.java" />
         <option value="$PROJECT_DIR$/src/User.java" />
         <option value="$PROJECT_DIR$/test/LogoutCommandTest.java" />
         <option value="$PROJECT_DIR$/src/Todo.txt" />
-        <option value="$PROJECT_DIR$/src/UsersDataBase.java" />
         <option value="$PROJECT_DIR$/src/CheckLibraryNumberCommand.java" />
         <option value="$PROJECT_DIR$/test/UsersDataBaseTest.java" />
+        <option value="$PROJECT_DIR$/src/MenuItem.java" />
         <option value="$PROJECT_DIR$/src/Biblioteca.java" />
+        <option value="$PROJECT_DIR$/src/UsersDataBase.java" />
+        <option value="$PROJECT_DIR$/test/BibliotecaTest.java" />
       </list>
     </option>
   </component>
@@ -582,29 +556,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Biblioteca">
-    <configuration default="false" name="UsersDataBaseTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="WelcomeScreen" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UsersDataBaseTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.All in biblioteca">
     <configuration default="false" name="CheckLibraryNumberCommandTest" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="WelcomeScreen" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -672,6 +624,28 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LogoutCommandTest" />
       <option name="METHOD_NAME" value="testLogoutCommand" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="BibliotecaTest.testProcessLogout" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="WelcomeScreen" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BibliotecaTest" />
+      <option name="METHOD_NAME" value="testProcessLogout" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -858,11 +832,11 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="JUnit.All in biblioteca" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.LibraryTest.testListAllMovies" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.UsersDataBaseTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CheckLibraryNumberCommandTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CheckLibraryNumberCommandTest.testProcessCheckUserLibraryNumber" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Biblioteca" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.LogoutCommandTest.testLogoutCommand" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CheckLibraryNumberCommandTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CheckLibraryNumberCommandTest.testProcessCheckUserLibraryNumber" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Biblioteca" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.LogoutCommandTest.testLogoutCommand" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.BibliotecaTest.testProcessLogout" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1003,11 +977,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/BookTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Book.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="26" selection-start="307" selection-end="307" vertical-scroll-proportion="0.21007605" />
@@ -1048,39 +1017,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuItem.java">
+    <entry file="file://$PROJECT_DIR$/test/UsersDataBaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="20" selection-start="975" selection-end="975" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/LogoutCommandTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0">
+        <state line="4" column="24" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Todo.txt">
+    <entry file="file://$PROJECT_DIR$/src/MenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="52" selection-start="1063" selection-end="1063" vertical-scroll-proportion="0.0">
+        <state line="4" column="75" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UsersDataBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="50" selection-start="1118" selection-end="1158" vertical-scroll-proportion="0.0">
+        <state line="43" column="36" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LogoutCommand.java">
+    <entry file="file://$PROJECT_DIR$/test/BibliotecaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="34" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
+        <state line="76" column="5" selection-start="2375" selection-end="2375" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Todo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="52" selection-start="1063" selection-end="1063" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1099,18 +1068,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/UsersDataBaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="24" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Biblioteca.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="5" selection-start="1905" selection-end="2018" vertical-scroll-proportion="0.80194175">
+        <state line="72" column="44" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.41825095">
           <folding />
         </state>
       </provider>

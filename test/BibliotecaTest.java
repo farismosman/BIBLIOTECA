@@ -66,7 +66,7 @@ public class BibliotecaTest {
     
     
 
-    ////////////////////////////////////// testIsLoggedIn process User choices /////////////////////////
+    ////////////////////////////////////// test process User choices /////////////////////////
 
     @Test
     public void testProcessInvalidOption() throws Exception {
@@ -82,9 +82,15 @@ public class BibliotecaTest {
 
         assertEquals(true, biblioteca.isQuit());
 
-    }  
+    }
 
+    @Test
+    public void testProcessLogout() throws Exception {
+        biblioteca.processUserChoice("logout");
 
+        assertEquals("You are logged out successfully.", outputConsole());
+
+    }
 
     //////////////////////// Functional test //////////////////////////////////////
 
