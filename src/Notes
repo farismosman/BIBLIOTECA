@@ -18,3 +18,7 @@ State your goal and idea first -- like from what you are right now to where you 
 * dependency injection
 * command pattern
 * enum
+
+
+
+5- avoid straight copy and paste... if you do it more than once, try to extract it to a method... for readability...

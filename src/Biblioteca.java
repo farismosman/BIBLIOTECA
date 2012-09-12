@@ -17,6 +17,11 @@ public class Biblioteca {
         this.bufferRead = new BufferedReader(new InputStreamReader(inStream));        
     }
 
+
+    public PrintStream getPrintStream() {
+        return printStream;
+    }
+
     ////////////////////////////////////////////////////// Print Menu //////////////////////////////////////
 
     public void printWelcomeMessage() {
@@ -54,8 +59,7 @@ public class Biblioteca {
 
     public void processUserChoice(String userInput) {   
         
-        MenuItem menuItem = MenuItem.getFromCode(userInput);   
-        
+        MenuItem menuItem = MenuItem.getFromCode(userInput);           
         
         if (userInput.equals("q")) {
             quit = true;

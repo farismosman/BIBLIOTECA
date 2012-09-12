@@ -7,32 +7,19 @@ import static org.junit.Assert.assertEquals;
 
 public class BibliotecaTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    Biblioteca biblioteca = bibliotecaSetOptions("1");
+    BibliotecaTestDouble biblioteca = new BibliotecaTestDouble("sometext");
 
-   
-    
     private final String PRINT_ALL_BOOKS = MenuItem.LIST_ALL_BOOKS.getId();
     private final String REQUEST_A_BOOK = MenuItem.RESERVE_A_BOOK.getId();
     private final String QUIT = "q";
     private final String AND = "\n";
 
-    private Biblioteca bibliotecaSetOptions(String inputString) {
-        ByteArrayInputStream thisInContent = new ByteArrayInputStream(inputString.getBytes());
-        return new Biblioteca(new PrintStream(outContent), thisInContent);
-    }
-
-    private String outputConsole() {
-        return outContent.toString().trim();
-    }
-
-
     /////////////////////////////// print MENU functionality ///////////////////////////////////
     @Test
-    public void testPrintWelcomeMessage() {
+    public void testPrintWelcomeMessage() {        
         String message = "Welcome to the Bangalore Public Library System!!";
         biblioteca.printWelcomeMessage();
-        assertEquals(message, outputConsole());
+        assertEquals(message, biblioteca.consoleOutput());
     }
 
     @Test
@@ -42,7 +29,7 @@ public class BibliotecaTest {
                 "To check your library number, type 3\n" +
                 "To view movie records, type 4";
         biblioteca.printMenu();
-        assertEquals(message, outputConsole());
+        assertEquals(message, biblioteca.consoleOutput());
     }
 
   
@@ -52,14 +39,14 @@ public class BibliotecaTest {
 
     @Test
     public void testUserInput() {
-        biblioteca = bibliotecaSetOptions("some text sent through input injection");
+        biblioteca = new BibliotecaTestDouble("some text sent through input injection");
 
         assertEquals("some text sent through input injection", biblioteca.getUserInput());
     }
 
     @Test
     public void testUserInptIsLowerCased() {
-        biblioteca = bibliotecaSetOptions("Q");
+        biblioteca = new BibliotecaTestDouble("Q");
 
         assertEquals("q", biblioteca.getUserInput());
     }
@@ -72,7 +59,7 @@ public class BibliotecaTest {
     public void testProcessInvalidOption() throws Exception {
         biblioteca.processUserChoice("unknown command");
 
-        assertEquals("Select a valid option!!", outputConsole());
+        assertEquals("Select a valid option!!", biblioteca.consoleOutput());
 
     }
 
@@ -88,7 +75,7 @@ public class BibliotecaTest {
     public void testProcessLogout() throws Exception {
         biblioteca.processUserChoice("logout");
 
-        assertEquals("You are logged out successfully.", outputConsole());
+        assertEquals("You are logged out successfully.", biblioteca.consoleOutput());
 
     }
 
@@ -99,10 +86,10 @@ public class BibliotecaTest {
         String expectedMessage = expectedOutputOfPrintAllBooksAndReserveABook("test/printAllBooksAndReserveABookOutputMessage.txt");
         String aBookNumber = "3";
 
-        biblioteca = bibliotecaSetOptions(PRINT_ALL_BOOKS + AND + REQUEST_A_BOOK + AND + aBookNumber + AND + QUIT);
+        biblioteca = new BibliotecaTestDouble(PRINT_ALL_BOOKS + AND + REQUEST_A_BOOK + AND + aBookNumber + AND + QUIT);
         biblioteca.run();
 
-        assertEquals(expectedMessage, outputConsole());
+        assertEquals(expectedMessage, biblioteca.consoleOutput());
     }
 
 

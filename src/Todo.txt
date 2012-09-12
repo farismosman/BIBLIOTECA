@@ -19,3 +19,8 @@
 17. Fix the \n in the text.
 18. Fix print an empty string to screen in Biblioteca. --- DONE
 19. Change the recursive method to while loop in getAndProcessUserChoice -- it could be broken into two methods or renamed. ---- DONE
+
+
+_______________________________________________________________________
+20. instantiate ListAllMoviesCommand class in ListAllMoviesCommandTest.
+ 21. Get rid of those instantiation of Biblioteca and Library in all other tests that is not BibliotecaTest.
