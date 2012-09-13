@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.io.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class BibliotecaTest {
 
@@ -78,6 +79,45 @@ public class BibliotecaTest {
         assertEquals("You are logged out successfully.", biblioteca.consoleOutput());
 
     }
+
+    @Test
+    public void testGetCurrentUserReturnsNullIfNoOneIsLoggedIn() throws Exception {
+        assertNull(biblioteca.getCurrentUser());
+    }
+
+    @Test
+    public void testGetCurrentUserReturnsLoggedInUser() throws Exception {
+        User loggedInUser = new User("111-1111", "password_0");
+        biblioteca.setCurrentUser(loggedInUser);
+        
+        assertEquals(loggedInUser, biblioteca.getCurrentUser());
+
+    }
+    
+    
+   // to test that there is a current user logged in, if you choose to print your library number, it will print it.
+    
+    
+    @Test
+    public void testIfAUserIsLoggedInAndYouChooseToPrintOutTheLibraryNumberItWillPrintTheLibraryNumber() throws Exception {
+        User loggedInUser = new User("111-1111", "password_0");
+        biblioteca.setCurrentUser(loggedInUser);
+        
+        biblioteca.processUserChoice("3");
+        
+        assertEquals("Your library number is 111-1111.", biblioteca.consoleOutput());
+        
+    }
+
+    @Test
+    public void testIfNoUserIsLoggedInAndYouChooseToPrintLibraryNumberItWillSayTalkToALibrarian() throws Exception {
+      biblioteca.setCurrentUser(null);
+        
+      biblioteca.processUserChoice("3");
+        
+      assertEquals("Talk to a librarian.", biblioteca.consoleOutput());  
+    }
+
 
     //////////////////////// Functional test //////////////////////////////////////
 

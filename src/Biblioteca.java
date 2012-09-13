@@ -10,7 +10,8 @@ public class Biblioteca {
     private boolean quit = false;
 
     private Library library = new Library();
-   
+    private User currentUser = null;
+
 
     public Biblioteca(PrintStream printStream, InputStream inStream) {
         this.printStream = printStream;
@@ -102,5 +103,11 @@ public class Biblioteca {
         new Biblioteca(System.out, System.in).run();
     }
 
-  
+    public void setCurrentUser(User someUser){
+        currentUser = someUser;
+    }
+
+    public User getCurrentUser() {           
+        return currentUser; 
+    }
 }
