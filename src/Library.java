@@ -1,18 +1,15 @@
-import org.apache.commons.lang3.*;
-        
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collections;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-
 public class Library {
-
     public static final String BOOK_ALREADY_RESERVED = "Book has already been reserved by someone else.";
     public static final String BOOK_RESERVED = "Thank you! Enjoy the book.";
     public static final String BOOK_UNAVAILABLE = "Sorry we don't have that book yet.";
     private SortedMap<String, Book> allBooks = new TreeMap<String, Book>();
-    private SortedMap<String,Movie> allMovies = new TreeMap<String, Movie>();
+    private SortedMap<String, Movie> allMovies = new TreeMap<String, Movie>();
 
     public Library() {
         createAllBooks();
@@ -30,22 +27,22 @@ public class Library {
         for (Movie movie : movies) {
             allMovies.put(movie.getId(), movie);
         }
- }
+    }
 
     private void createAllBooks() {
         Book[] books = {
-                        new Book("1","Little Red Riding Hood", "Will Smith"),
-                        new Book("2","Small Giants", "Bo Burlingham"),
-                        new Book("3","The Starfish and the Spider", "Rod Beckstrom, Ori Brafman"),
-                        new Book("4","The Whuffie Factor", "Tara Hunt")              
+                new Book("1", "Little Red Riding Hood", "Will Smith"),
+                new Book("2", "Small Giants", "Bo Burlingham"),
+                new Book("3", "The Starfish and the Spider", "Rod Beckstrom, Ori Brafman"),
+                new Book("4", "The Whuffie Factor", "Tara Hunt")
         };
-        
-        for (Book book: books){
+
+        for (Book book : books) {
             allBooks.put(book.getId(), book);
         }
-        
+
     }
-    
+
     public SortedMap<String, Book> getAllBooks() {
         return Collections.unmodifiableSortedMap(allBooks);
     }
@@ -67,9 +64,7 @@ public class Library {
         return StringUtils.join(allBooks.values(), "\n");
     }
 
-    public String allMovieRecords(){
+    public String allMovieRecords() {
         return StringUtils.join(allMovies.values(), "\n");
     }
-    
- 
 }

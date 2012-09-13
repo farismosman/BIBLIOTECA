@@ -2,11 +2,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UsersDataBase {
-
     public static final int USER_DATA_BASE_SIZE = 10;
     private Map<String, User> userDataBase = new HashMap<String, User>();
     private static String currentLibraryNumber = null;
-    
 
     public UsersDataBase() {
         createUserDataBase();
@@ -21,36 +19,23 @@ public class UsersDataBase {
             userDataBase.put(libraryNumber, new User(libraryNumber, password));
         }
     }
-    
-    
+
     public String getLibraryNumber(String libraryNumber, String password) {
-        User theUser = userDataBase.get(libraryNumber);       
-        
-        
+        User theUser = userDataBase.get(libraryNumber);
+
         if (theUser != null && theUser.login(libraryNumber, password)) {
-           currentLibraryNumber = libraryNumber; 
-           return "Your Library Number is: " + libraryNumber + ", to logout type logout.";
+            currentLibraryNumber = libraryNumber;
+            return "Your Library Number is: " + libraryNumber + ", to logout type logout.";
         }
 
         return "Please talk to a Librarian. Thank You.";
     }
 
-
     public static String getCurrentLibraryNumber() {
         return currentLibraryNumber;
     }
-    
-    public static void logoutCurrentUser(){
-        currentLibraryNumber = null;
-        
-    }
 
-//private String whatever(){
-//    if (userInput().equals("logout") && currentLibraryNumber != null){
-//        currentLibraryNumber = null;
-//        return "logged out successfully";
-//    } else {
-//        return "You need to login first";
-//    }
-//}
+    public static void logoutCurrentUser() {
+        currentLibraryNumber = null;
+    }
 }

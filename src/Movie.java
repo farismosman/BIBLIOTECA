@@ -10,7 +10,7 @@ public class Movie {
     private String actor;
     private String director;
     private String rating;
-    
+
     public Movie(String id, String title, String actor, String director, String rating) {
         this.id = id;
         this.title = title;
@@ -21,7 +21,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return  String.format(FORMAT, id + "- ", title , actor , director , rating);
+        return String.format(FORMAT, id + "- ", title, actor, director, rating);
     }
 
     public String getId() {

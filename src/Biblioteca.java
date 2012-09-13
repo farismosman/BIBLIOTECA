@@ -3,7 +3,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.*;
 
 public class Biblioteca {
-
     private PrintStream printStream;
 
     private BufferedReader bufferRead;
@@ -12,12 +11,10 @@ public class Biblioteca {
     private Library library = new Library();
     private User currentUser = null;
 
-
     public Biblioteca(PrintStream printStream, InputStream inStream) {
         this.printStream = printStream;
-        this.bufferRead = new BufferedReader(new InputStreamReader(inStream));        
+        this.bufferRead = new BufferedReader(new InputStreamReader(inStream));
     }
-
 
     public PrintStream getPrintStream() {
         return printStream;
@@ -31,18 +28,17 @@ public class Biblioteca {
 
     public void printMenu() {
         printToScreen("");
-        printToScreen(StringUtils.join(MenuItem.values(),  "\n"));
+        printToScreen(StringUtils.join(MenuItem.values(), "\n"));
     }
 
     public void printToScreen(String message) {
         printStream.println(message);
-    } 
-   
+    }
+
 
     /////////////////////////////////////////////////////// Get user input //////////////////////////////
 
     public String getUserInput() {
-
         printStream.print("> ");
         String userInput = "";
 
@@ -58,13 +54,12 @@ public class Biblioteca {
         return quit;
     }
 
-    public void processUserChoice(String userInput) {   
-        
-        MenuItem menuItem = MenuItem.getFromCode(userInput);           
-        
+    public void processUserChoice(String userInput) {
+        MenuItem menuItem = MenuItem.getFromCode(userInput);
+
         if (userInput.equals("q")) {
             quit = true;
-        } else if (userInput.equals("logout")){
+        } else if (userInput.equals("logout")) {
             UsersDataBase.logoutCurrentUser();
             printToScreen("You are logged out successfully.");
         } else if (menuItem != null) {
@@ -73,7 +68,6 @@ public class Biblioteca {
             processSelectValidOption();
         }
     }
-
 
     private void getAndProcessUserChoice() {
         String userInput = getUserInput();
@@ -103,11 +97,11 @@ public class Biblioteca {
         new Biblioteca(System.out, System.in).run();
     }
 
-    public void setCurrentUser(User someUser){
+    public void setCurrentUser(User someUser) {
         currentUser = someUser;
     }
 
-    public User getCurrentUser() {           
-        return currentUser; 
+    public User getCurrentUser() {
+        return currentUser;
     }
 }

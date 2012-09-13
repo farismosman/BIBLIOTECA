@@ -5,10 +5,10 @@ import static junit.framework.Assert.assertEquals;
 public class MovieTest {
     @Test
     public void testMovieConsoleString() throws Exception {
-        Movie movie = new Movie("0","Titanic",  "Dicaprio", "James Cameron", "1");
+        Movie movie = new Movie("0", "Titanic", "Dicaprio", "James Cameron", "1");
         assertEquals("0- Titanic             Dicaprio            James Cameron       1", movie.toString());
-        
-    
+
+
     }
 
 //    @Test

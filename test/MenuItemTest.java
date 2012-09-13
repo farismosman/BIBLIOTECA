@@ -5,7 +5,7 @@ import static junit.framework.Assert.assertEquals;
 public class MenuItemTest {
     @Test
     public void testTestToString() throws Exception {
-       assertEquals("To view a list all the books in the library, type 1", MenuItem.LIST_ALL_BOOKS.toString());
+        assertEquals("To view a list all the books in the library, type 1", MenuItem.LIST_ALL_BOOKS.toString());
     }
 
     @Test

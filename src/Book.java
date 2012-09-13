@@ -11,7 +11,7 @@ public class Book {
         this.author = author;
     }
 
-    public void reserve(){
+    public void reserve() {
         reserved = true;
     }
 

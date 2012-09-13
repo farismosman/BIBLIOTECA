@@ -4,7 +4,6 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 public class BibliotecaTestDouble extends Biblioteca {
-
     private OutputStream out;
 
     public BibliotecaTestDouble(String input) {

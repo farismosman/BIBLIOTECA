@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class CheckLibraryNumberCommandTest {
 
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final  String libraryNumber = "111-1111";
+    private final String libraryNumber = "111-1111";
     private final String loginMessages = "username: \n> password: \n> ";
     private final String then = "\n";
 
@@ -31,23 +31,21 @@ public class CheckLibraryNumberCommandTest {
         assertEquals(expectedMessages, outContent.toString().trim());
 
     }
-    
+
     @Test
-    public void testProcessCheckUserLibraryNumber() throws Exception {        
-        
+    public void testProcessCheckUserLibraryNumber() throws Exception {
+
         String password = "password_0";
-        
-        Biblioteca biblioteca = bibliotecaInput(libraryNumber + then + password);        
-        
-        biblioteca.processUserChoice(MenuItem.CHECK_LIBRARY_NUMBER.getId());        
-        
-        String expectedMessages = loginMessages + "Your Library Number is: " + libraryNumber + ", to logout type logout.";  
+
+        Biblioteca biblioteca = bibliotecaInput(libraryNumber + then + password);
+
+        biblioteca.processUserChoice(MenuItem.CHECK_LIBRARY_NUMBER.getId());
+
+        String expectedMessages = loginMessages + "Your Library Number is: " + libraryNumber + ", to logout type logout.";
 
         assertEquals(expectedMessages, outContent.toString().trim());
 
     }
 
-  
 
-    
 }

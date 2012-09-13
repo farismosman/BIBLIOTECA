@@ -2,7 +2,7 @@ public enum MenuItem {
     LIST_ALL_BOOKS("1", "view a list all the books in the library", new ListAllBookCommand()),
     RESERVE_A_BOOK("2", "reserve a book", new RequestABookCommand()),
     CHECK_LIBRARY_NUMBER("3", "check your library number", new CheckLibraryNumberCommand()),
-    LIST_ALL_MOVIES("4", "view movie records", new ListAllMoviesCommand());  
+    LIST_ALL_MOVIES("4", "view movie records", new ListAllMoviesCommand());
 
     private final String id;
     private final String description;

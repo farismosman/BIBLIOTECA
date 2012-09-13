@@ -1,13 +1,13 @@
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class UsersDataBaseTest {
     @Test
     public void testMyLibraryNumber() throws Exception {
         String libraryNumber = "111-1111";
         String password = "password_0";
-        assertEquals("Your Library Number is: " + libraryNumber + ", to logout type logout.", new UsersDataBase().getLibraryNumber(libraryNumber, password));        
+        assertEquals("Your Library Number is: " + libraryNumber + ", to logout type logout.", new UsersDataBase().getLibraryNumber(libraryNumber, password));
     }
 
     @Test

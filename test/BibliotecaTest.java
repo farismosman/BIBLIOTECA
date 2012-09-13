@@ -1,13 +1,13 @@
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 public class BibliotecaTest {
-
     BibliotecaTestDouble biblioteca = new BibliotecaTestDouble("sometext");
 
     private final String PRINT_ALL_BOOKS = MenuItem.LIST_ALL_BOOKS.getId();
@@ -17,7 +17,7 @@ public class BibliotecaTest {
 
     /////////////////////////////// print MENU functionality ///////////////////////////////////
     @Test
-    public void testPrintWelcomeMessage() {        
+    public void testPrintWelcomeMessage() {
         String message = "Welcome to the Bangalore Public Library System!!";
         biblioteca.printWelcomeMessage();
         assertEquals(message, biblioteca.consoleOutput());
@@ -32,8 +32,6 @@ public class BibliotecaTest {
         biblioteca.printMenu();
         assertEquals(message, biblioteca.consoleOutput());
     }
-
-  
 
 
     /////////////////////////////// user input functionality /////////////////////////////////////
@@ -51,8 +49,7 @@ public class BibliotecaTest {
 
         assertEquals("q", biblioteca.getUserInput());
     }
-    
-    
+
 
     ////////////////////////////////////// test process User choices /////////////////////////
 
@@ -61,7 +58,6 @@ public class BibliotecaTest {
         biblioteca.processUserChoice("unknown command");
 
         assertEquals("Select a valid option!!", biblioteca.consoleOutput());
-
     }
 
     @Test
@@ -69,7 +65,6 @@ public class BibliotecaTest {
         biblioteca.processUserChoice("q");
 
         assertEquals(true, biblioteca.isQuit());
-
     }
 
     @Test
@@ -77,7 +72,6 @@ public class BibliotecaTest {
         biblioteca.processUserChoice("logout");
 
         assertEquals("You are logged out successfully.", biblioteca.consoleOutput());
-
     }
 
     @Test
@@ -89,33 +83,31 @@ public class BibliotecaTest {
     public void testGetCurrentUserReturnsLoggedInUser() throws Exception {
         User loggedInUser = new User("111-1111", "password_0");
         biblioteca.setCurrentUser(loggedInUser);
-        
-        assertEquals(loggedInUser, biblioteca.getCurrentUser());
 
+        assertEquals(loggedInUser, biblioteca.getCurrentUser());
     }
-    
-    
-   // to test that there is a current user logged in, if you choose to print your library number, it will print it.
-    
-    
+
+
+    // to test that there is a current user logged in, if you choose to print your library number, it will print it.
+
+
     @Test
     public void testIfAUserIsLoggedInAndYouChooseToPrintOutTheLibraryNumberItWillPrintTheLibraryNumber() throws Exception {
         User loggedInUser = new User("111-1111", "password_0");
         biblioteca.setCurrentUser(loggedInUser);
-        
+
         biblioteca.processUserChoice("3");
-        
+
         assertEquals("Your library number is 111-1111.", biblioteca.consoleOutput());
-        
     }
 
     @Test
     public void testIfNoUserIsLoggedInAndYouChooseToPrintLibraryNumberItWillSayTalkToALibrarian() throws Exception {
-      biblioteca.setCurrentUser(null);
-        
-      biblioteca.processUserChoice("3");
-        
-      assertEquals("Talk to a librarian.", biblioteca.consoleOutput());  
+        biblioteca.setCurrentUser(null);
+
+        biblioteca.processUserChoice("3");
+
+        assertEquals("Talk to a librarian.", biblioteca.consoleOutput());
     }
 
 
@@ -132,20 +124,15 @@ public class BibliotecaTest {
         assertEquals(expectedMessage, biblioteca.consoleOutput());
     }
 
-
-
     private String expectedOutputOfPrintAllBooksAndReserveABook(String filename) {
         File file = new File(filename);
 
         String expectedMessage = "";
-        try
-        {
+        try {
             expectedMessage = FileUtils.readFileToString(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return expectedMessage;
     }
-
-
 }

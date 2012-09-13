@@ -14,7 +14,7 @@ public class ListAllMovieCommandTest {
     @Test
     public void testProcessPrintAllMovies() throws Exception {
         BibliotecaTestDouble biblioteca = new BibliotecaTestDouble("someInputString");
-        
+
         biblioteca.processUserChoice(MenuItem.LIST_ALL_MOVIES.getId());
 
         assertEquals(ALL_MOVIES, biblioteca.consoleOutput());
