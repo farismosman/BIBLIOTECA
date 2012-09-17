@@ -11,6 +11,4 @@ public class BookTest {
         book.reserve();
         assertEquals(true, book.isReserved());
     }
-
-
 }

@@ -115,7 +115,7 @@ public class BibliotecaTest {
 
     @Test
     public void testBibliotecaMain() throws Exception {
-        String expectedMessage = expectedOutputOfPrintAllBooksAndReserveABook("test/printAllBooksAndReserveABookOutputMessage.txt");
+        String expectedMessage = expectedOutputOfPrintAllBooksAndReserveABook("src/test/java/printAllBooksAndReserveABookOutputMessage.txt");
         String aBookNumber = "3";
 
         biblioteca = new BibliotecaTestDouble(PRINT_ALL_BOOKS + AND + REQUEST_A_BOOK + AND + aBookNumber + AND + QUIT);
